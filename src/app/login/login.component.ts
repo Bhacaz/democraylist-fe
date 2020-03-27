@@ -4,7 +4,7 @@ import {DemocraticPlaylistService} from '../democratic-playlist/democratic-playl
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   }
 
   authSpotify() {
-    console.log('hello');
+    localStorage.removeItem('access_token');
     this.democraticPlaylistService.getSpotifyAuthUrl().subscribe(response => {
       console.log(response);
       window.open(response.url, '_self');

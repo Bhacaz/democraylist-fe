@@ -1,0 +1,17 @@
+
+.playlist-summary {
+  height: 3em;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.playlist-info {
+  padding-left: 0.5em;
+}

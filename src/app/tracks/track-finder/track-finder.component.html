@@ -1,0 +1,9 @@
+<div class="track-finder">
+  <input type="text" class="form-control" [(ngModel)]="query" name="query" (input)="searchTrack()">
+
+  <div *ngIf="searchResult">
+    <div *ngFor="let track of searchResult">
+      <app-track-summary [track]="track" (click)="onClick(track.id)"></app-track-summary>
+    </div>
+  </div>
+</div>

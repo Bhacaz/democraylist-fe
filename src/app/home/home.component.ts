@@ -5,41 +5,34 @@ import {DemocraticPlaylistService} from '../democratic-playlist/democratic-playl
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  access_token: string;
-  user: string;
+  user;
   playlists: any = [];
 
   constructor(
     private route: ActivatedRoute,
     private democraticPlaylist: DemocraticPlaylistService
   ) {
-    this.route.queryParams.subscribe(params => {
-      const code = params.code;
-      console.log(code);
-      this.democraticPlaylist.getSpotifyToken(code).subscribe(response => {
-        console.log(response);
-        this.access_token = response.access_token;
-        this.user = response.user;
-        localStorage.setItem('access_token', this.access_token);
-        this.getPlaylist();
+    if (localStorage.getItem('access_token')) {
+      this.democraticPlaylist.getUser()
+        .subscribe(data => this.user = data.user);
+    } else {
+      this.route.queryParams.subscribe(params => {
+        const code = params.code;
+        console.log(code);
+        this.democraticPlaylist.getSpotifyToken(code).subscribe(response => {
+          console.log(response);
+          this.user = response.user;
+          localStorage.setItem('access_token', response.access_token);
+        });
       });
-    });
+    }
   }
 
   ngOnInit(): void {
 
   }
-
-  getPlaylist() {
-    this.democraticPlaylist.getPlaylist()
-      .subscribe((response => {
-        console.log(response);
-        this.playlists = response;
-      }));
-  }
-
 }

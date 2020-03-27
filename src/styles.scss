@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+.container {
+  display: flex;
+
+  .column {
+    flex-direction: column;
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
