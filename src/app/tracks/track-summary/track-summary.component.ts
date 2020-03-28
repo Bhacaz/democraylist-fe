@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DemocraticPlaylistService} from '../../democratic-playlist/democratic-playlist.service';
+import {VoteService} from '../../democratic-playlist/vote.service';
 
 @Component({
   selector: 'app-track-summary',
@@ -11,7 +12,8 @@ export class TrackSummaryComponent implements OnInit {
   @Input() track;
 
   constructor(
-    private democraticPlaylistService: DemocraticPlaylistService
+    private democraticPlaylistService: DemocraticPlaylistService,
+    private voteService: VoteService
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class TrackSummaryComponent implements OnInit {
           this.track.vote_count += 1;
         }
         this.track.my_vote = 'up';
+        this.voteService.voteChanged(this.track.playlist_id);
       });
   }
 
@@ -38,6 +41,7 @@ export class TrackSummaryComponent implements OnInit {
           this.track.vote_count -= 1;
         }
         this.track.my_vote = 'down';
+        this.voteService.voteChanged(this.track.playlist_id);
       });
   }
 }
