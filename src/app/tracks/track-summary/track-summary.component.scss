@@ -1,9 +1,39 @@
 
 .track-summary {
-  height: 3em;
+  height: 4.5em;
   padding: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   border: 1px solid;
   border-radius: 10px;
+}
+
+.arrows {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  width: 22px;
+}
+
+.vote-count {
+  text-align: center;
+}
+
+.vote-null {
+  color: lightgrey;
+}
+
+.voted-up {
+  color: limegreen;
+}
+
+.voted-down {
+  color: orangered;
+}
+
+span.icon {
+  font-size: 1.5em;
+}
+
+.arrow-hover:hover {
+  color: grey;
 }

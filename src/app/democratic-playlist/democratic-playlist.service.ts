@@ -48,4 +48,13 @@ export class DemocraticPlaylistService {
   addTrackToPlaylist(playlistId: number, trackId: string) {
     return this.http.post(this.backendUrl + '/playlists/' + playlistId + '/add_track', { track_id: trackId });
   }
+
+  upVotePatch(trackId: number): Observable<any> {
+    return this.http.patch(this.backendUrl + '/tracks/' + trackId + '/up_vote', {});
+  }
+
+  downVotePatch(trackId: number): Observable<any> {
+    return this.http.patch(this.backendUrl + '/tracks/' + trackId + '/down_vote', {});
+  }
+
 }
