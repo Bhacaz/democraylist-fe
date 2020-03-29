@@ -1,10 +1,14 @@
 
-<div *ngIf="user">
-  <p>{{user.id}}</p>
-  <p>{{user.email}}</p>
-  <img src="{{user.images[0].url}}">
-</div>
+<div class="container column">
+  <div>
+    <a routerLink="/playlists">My Playlists</a>
+  </div>
 
-<div>
-  <a routerLink="/playlists">Playlists</a>
+  <div>
+    <a routerLink="/playlists">Followed</a>
+  </div>
+
+  <div>
+    <a routerLink="/playlists">Explore</a>
+  </div>
 </div>

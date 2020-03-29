@@ -15,6 +15,7 @@ import {FormsModule} from '@angular/forms';
 import { PlaylistShowComponent } from './playlists/playlist-show/playlist-show.component';
 import { TrackFinderComponent } from './tracks/track-finder/track-finder.component';
 import { TrackSummaryComponent } from './tracks/track-summary/track-summary.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TrackSummaryComponent } from './tracks/track-summary/track-summary.comp
     PlaylistsNewComponent,
     PlaylistShowComponent,
     TrackFinderComponent,
-    TrackSummaryComponent
+    TrackSummaryComponent,
+    ToolbarComponent
   ],
   imports: [
     HttpClientModule,

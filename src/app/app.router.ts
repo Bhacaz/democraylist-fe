@@ -6,8 +6,9 @@ import {PlaylistsNewComponent} from './playlists/playlists-new/playlists-new.com
 import {PlaylistShowComponent} from './playlists/playlist-show/playlist-show.component';
 
 export const appRoutes: Routes = [
-  { path: '',      component: LoginComponent },
-  { path: 'auth/spotify/callback', component: HomeComponent },
+  { path: '',      component: HomeComponent },
+  { path: 'login',      component: LoginComponent },
+  { path: 'auth/spotify/callback', component: LoginComponent },
   { path: 'playlists', component: PlaylistListComponent },
   { path: 'playlists/new', component: PlaylistsNewComponent },
   { path: 'playlists/:id', component: PlaylistShowComponent },
