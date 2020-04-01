@@ -1,4 +1,4 @@
-<app-track-finder (trackSelected)='addTrack($event)'></app-track-finder>
+<app-track-finder *ngIf="playlist.subscribed" (trackSelected)='addTrack($event)'></app-track-finder>
 <app-playlist-summary *ngIf="playlist" [playlist]="playlist"></app-playlist-summary>
 <div class="container">
   <div class="track-list">

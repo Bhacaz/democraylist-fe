@@ -25,8 +25,4 @@ export class PlaylistListComponent implements OnInit {
       .subscribe(data => this.playlists = data);
   }
 
-  showPlaylist(id: number) {
-    this.router.navigate(['/playlists', id]);
-  }
-
 }

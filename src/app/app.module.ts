@@ -16,6 +16,7 @@ import { PlaylistShowComponent } from './playlists/playlist-show/playlist-show.c
 import { TrackFinderComponent } from './tracks/track-finder/track-finder.component';
 import { TrackSummaryComponent } from './tracks/track-summary/track-summary.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ExploreComponent } from './explore/explore.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     PlaylistShowComponent,
     TrackFinderComponent,
     TrackSummaryComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ExploreComponent
   ],
   imports: [
     HttpClientModule,

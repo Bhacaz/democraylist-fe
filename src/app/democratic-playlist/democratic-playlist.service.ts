@@ -57,4 +57,16 @@ export class DemocraticPlaylistService {
     return this.http.patch(this.backendUrl + '/tracks/' + trackId + '/down_vote', {});
   }
 
+  getExplore(): Observable<any> {
+    return this.http.get(this.backendUrl + '/playlists/explore');
+  }
+
+  subscripbedToPlaylist(playlistId: number): Observable<any> {
+    return this.http.post(this.backendUrl + '/playlists/' + playlistId + '/subscribed', {});
+  }
+
+  unsubscripbedToPlaylist(playlistId: number): Observable<any> {
+    return this.http.post(this.backendUrl + '/playlists/' + playlistId + '/unsubscribed', {});
+  }
+
 }

@@ -19,3 +19,17 @@ body {
   margin: 0;
 }
 
+.spacer {
+  flex: 1;
+}
+
+.content-center {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.content-center-content {
+  margin-top: auto;
+  margin-bottom: auto;
+}

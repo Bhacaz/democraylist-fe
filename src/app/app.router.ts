@@ -4,11 +4,13 @@ import {HomeComponent} from './home/home.component';
 import {PlaylistListComponent} from './playlists/playlist-list/playlist-list.component';
 import {PlaylistsNewComponent} from './playlists/playlists-new/playlists-new.component';
 import {PlaylistShowComponent} from './playlists/playlist-show/playlist-show.component';
+import {ExploreComponent} from './explore/explore.component';
 
 export const appRoutes: Routes = [
   { path: '',      component: HomeComponent },
   { path: 'login',      component: LoginComponent },
   { path: 'auth/spotify/callback', component: LoginComponent },
+  { path: 'explore', component: ExploreComponent },
   { path: 'playlists', component: PlaylistListComponent },
   { path: 'playlists/new', component: PlaylistsNewComponent },
   { path: 'playlists/:id', component: PlaylistShowComponent },
