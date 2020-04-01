@@ -61,6 +61,10 @@ export class DemocraticPlaylistService {
     return this.http.get(this.backendUrl + '/playlists/explore');
   }
 
+  getSubscriptions(): Observable<any> {
+    return this.http.get(this.backendUrl + '/playlists/subscriptions');
+  }
+
   subscripbedToPlaylist(playlistId: number): Observable<any> {
     return this.http.post(this.backendUrl + '/playlists/' + playlistId + '/subscribed', {});
   }

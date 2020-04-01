@@ -17,6 +17,7 @@ import { TrackFinderComponent } from './tracks/track-finder/track-finder.compone
 import { TrackSummaryComponent } from './tracks/track-summary/track-summary.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ExploreComponent } from './explore/explore.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ExploreComponent } from './explore/explore.component';
     TrackFinderComponent,
     TrackSummaryComponent,
     ToolbarComponent,
-    ExploreComponent
+    ExploreComponent,
+    SubscriptionsComponent
   ],
   imports: [
     HttpClientModule,
