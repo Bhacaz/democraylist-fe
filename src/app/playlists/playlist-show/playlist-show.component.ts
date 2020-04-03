@@ -44,4 +44,9 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     this.democraticPlaylistService.addTrackToPlaylist(this.playlistId, trackId)
       .subscribe(data => this.playlist = data);
   }
+
+  showTrackFinder(): boolean {
+    return this.playlist.user_id == JSON.parse(localStorage.getItem('user')).id ||
+      this.playlist.subscribed;
+  }
 }
