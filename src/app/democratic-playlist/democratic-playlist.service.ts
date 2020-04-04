@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {interval, Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {startWith, switchMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,14 @@ export class DemocraticPlaylistService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    // Every 10 minutes
+    interval(1000 * 60 * 10).subscribe(x => {
+      this.getRefreshAcessToken().subscribe(res => {
+        localStorage.setItem('access_token', res.access_token);
+      });
+    });
+  }
 
   getSpotifyAuthUrl(): Observable<any> {
     return this.http.get(this.backendUrl + '/auth/spotify_login_url');
@@ -20,6 +28,10 @@ export class DemocraticPlaylistService {
 
   getSpotifyToken(code: string): Observable<any> {
     return this.http.post(this.backendUrl + '/auth/spotify_get_token', { code });
+  }
+
+  getRefreshAcessToken(): Observable<any> {
+    return this.http.get(this.backendUrl + '/auth/refresh_access_token');
   }
 
   getPlaylists(): Observable<any> {
