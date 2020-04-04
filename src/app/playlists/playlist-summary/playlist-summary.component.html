@@ -2,7 +2,7 @@
 <div class="container playlist-summary">
   <div class="container spacer" (click)="showPlaylist()">
     <div>
-      <img class="playlist-img" src="./assets/images/playlistPlaceholder.png" height="100%" width="48px">
+      <img class="playlist-img" [src]="playlist.image_url || './assets/images/playlistPlaceholder.png'" height="100%" width="48px">
     </div>
     <div class="container column playlist-info">
         <h2 class="no-margin">{{playlist.name}}</h2>
@@ -11,16 +11,16 @@
   </div>
   <div class="content-center" *ngIf="!my_playlist()">
     <button
+      pButton
       *ngIf="!playlist.subscribed"
       class="subscribed-button content-center-content"
-      (click)="subscribed()">
-      Subscribed
-    </button>
+      label="Subscribed"
+      (click)="subscribed()"></button>
     <button
+      pButton
       *ngIf="playlist.subscribed"
       class="subscribed-button content-center-content"
-      (click)="unsubscribed()">
-      Unsubscribed
-    </button>
+      label="Unsubscribed"
+      (click)="unsubscribed()"></button>
   </div>
 </div>
