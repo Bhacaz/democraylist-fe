@@ -1,5 +1,12 @@
-<div class="track-finder">
-  <input type="text" class="form-control" [(ngModel)]="query" name="query" (input)="searchTrack()">
+<div class="track-finder content-center">
+  <input type="text"
+         id="search-input"
+         pInputText
+         class="form-control"
+         [(ngModel)]="query"
+         name="query"
+         placeholder="Search"
+         (input)="searchTrack()">
 
   <div *ngIf="searchResult">
     <div *ngFor="let track of searchResult">

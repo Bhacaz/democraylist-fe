@@ -18,6 +18,7 @@ import { TrackSummaryComponent } from './tracks/track-summary/track-summary.comp
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ExploreComponent } from './explore/explore.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SubscriptionsComponent } from './subscriptions/subscriptions.component'
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    InputTextModule
   ],
   providers: [
     {
