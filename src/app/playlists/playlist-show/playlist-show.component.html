@@ -1,4 +1,4 @@
-<span *ngIf="playlist">
+<span *ngIf="playlist && innerWidth >= 900">
   <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
   <app-playlist-summary [playlist]="playlist"></app-playlist-summary>
   <div class="container playlist-show-tracks-list">
@@ -12,5 +12,27 @@
         <app-track-summary [track]="track"></app-track-summary>
       </div>
     </div>
+  </div>
+</span>
+
+<span *ngIf="playlist && innerWidth < 900">
+  <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
+  <app-playlist-summary [playlist]="playlist"></app-playlist-summary>
+  <div class="container playlist-show-tracks-list">
+    <p-tabView class="content-center-content">
+      <p-tabPanel class="panel-tracks" header="Submission">
+        <div class="track-list">
+          <div *ngFor="let track of playlist.tracks_submission">
+            <app-track-summary [track]="track"></app-track-summary>
+          </div>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Tracks">
+        <div class="track-list">
+          <div *ngFor="let track of playlist.tracks">
+            <app-track-summary [track]="track"></app-track-summary>
+          </div>
+        </div>  </p-tabPanel>
+    </p-tabView>
   </div>
 </span>

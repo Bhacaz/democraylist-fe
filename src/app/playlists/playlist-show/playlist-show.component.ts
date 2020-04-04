@@ -13,6 +13,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   playlistId: number;
   playlist: any;
   voteChangingSubscription;
+  innerWidth: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
     this.getPlaylist();
   }
 

@@ -20,6 +20,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import {TabViewModule} from 'primeng/tabview';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import {ButtonModule} from 'primeng/button';
     RouterModule.forRoot(appRoutes),
     FormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    TabViewModule
   ],
   providers: [
     {

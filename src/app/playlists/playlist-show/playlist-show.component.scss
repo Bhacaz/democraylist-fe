@@ -14,3 +14,13 @@
   margin-left: -1em;
   margin-right: -1em;
 }
+
+::ng-deep .ui-tabview-panels {
+  padding: 0 !important;
+  border: none !important;
+  margin-right: 2.3em !important;
+}
+
+::ng-deep .ui-tabview-nav {
+  padding-left: 1em !important;
+}
