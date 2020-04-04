@@ -10,17 +10,9 @@ import {DemocraticPlaylistService} from '../democratic-playlist/democratic-playl
 export class ToolbarComponent implements OnInit {
 
   user;
-  playlists: any = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private democraticPlaylistService: DemocraticPlaylistService
-  ) {
-    if (localStorage.getItem('access_token')) {
-      this.democraticPlaylistService.getUser()
-        .subscribe(data => this.user = data.user);
-    }
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   ngOnInit(): void {

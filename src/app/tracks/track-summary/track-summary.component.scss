@@ -37,3 +37,25 @@ span.icon {
 .arrow-hover:hover {
   color: grey;
 }
+
+.play-button {
+  color: whitesmoke;
+  position: absolute;
+  font-size: 3em;
+  //Center for image 72px x 72px
+  margin: 12px 15.425px;
+  z-index: 2;
+}
+
+.album-img {
+  position: absolute;
+  z-index: 1;
+}
+
+.hover-img {
+  filter: contrast(40%) blur(1px);
+}
+
+.album-img-container {
+  width: 72px;
+}

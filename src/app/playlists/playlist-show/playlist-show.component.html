@@ -1,14 +1,16 @@
-<app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
-<app-playlist-summary *ngIf="playlist" [playlist]="playlist"></app-playlist-summary>
-<div class="container">
-  <div class="track-list">
-    <div *ngFor="let track of playlist.tracks_submission">
-      <app-track-summary [track]="track"></app-track-summary>
+<span *ngIf="playlist">
+  <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
+  <app-playlist-summary [playlist]="playlist"></app-playlist-summary>
+  <div class="container playlist-show-tracks-list">
+    <div class="track-list">
+      <div *ngFor="let track of playlist.tracks_submission">
+        <app-track-summary [track]="track"></app-track-summary>
+      </div>
+    </div>
+    <div class="track-list">
+      <div *ngFor="let track of playlist.tracks">
+        <app-track-summary [track]="track"></app-track-summary>
+      </div>
     </div>
   </div>
-  <div class="track-list">
-    <div *ngFor="let track of playlist.tracks">
-      <app-track-summary [track]="track"></app-track-summary>
-    </div>
-  </div>
-</div>
+</span>

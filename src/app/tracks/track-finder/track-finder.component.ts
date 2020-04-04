@@ -27,6 +27,8 @@ export class TrackFinderComponent implements OnInit {
           console.log(data);
           this.searchResult = data;
         });
+    } else {
+      this.searchResult = null;
     }
   }
 

@@ -8,13 +8,13 @@ export class VoteService {
 
   constructor() { }
 
-  private subject = new Subject<any>();
+  private subject$ = new Subject<any>();
 
   voteChanged(playlistId: number) {
-    this.subject.next(playlistId );
+    this.subject$.next(playlistId );
   }
 
   voteChanging(): Observable<any> {
-    return this.subject.asObservable();
+    return this.subject$.asObservable();
   }
 }
