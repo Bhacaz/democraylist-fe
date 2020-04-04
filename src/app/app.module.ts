@@ -19,6 +19,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ExploreComponent } from './explore/explore.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {InputTextModule} from 'primeng/inputtext';
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    InputTextModule
+    InputTextModule,
+    ButtonModule
   ],
   providers: [
     {
