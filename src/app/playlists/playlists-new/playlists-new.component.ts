@@ -21,8 +21,6 @@ export class PlaylistsNewComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.name);
-    console.log(this.description);
     this.democraticPlaylist.newPlaylist({name: this.name, description: this.description, song_size: this.song_size}).subscribe(data => {
       this.router.navigate(['/playlists']);
     });

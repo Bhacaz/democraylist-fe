@@ -20,11 +20,9 @@ export class TrackFinderComponent implements OnInit {
   }
 
   searchTrack(): void {
-    console.log(this.query);
     if (this.query) {
       this.democraticPlaylistService.searchTracks(this.query)
         .subscribe(data => {
-          console.log(data);
           this.searchResult = data;
         });
     } else {
@@ -32,7 +30,7 @@ export class TrackFinderComponent implements OnInit {
     }
   }
 
-  onClick(trackId: string) {
+  trackAddedEvent(trackId) {
     this.query = '';
     this.trackSelected.emit(trackId);
     this.searchResult = undefined;

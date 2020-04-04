@@ -23,7 +23,6 @@ export class AudioService {
   }
 
   private resetCurrentlyPlayingTrackId = (event) => {
-    console.log(event);
     if (event.type === 'ended') {
       this.currentlyPlayingTrackId = null;
       this.player$.next(this.currentlyPlayingTrackId);

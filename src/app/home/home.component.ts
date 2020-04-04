@@ -22,9 +22,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.route.queryParams.subscribe(params => {
         const code = params.code;
-        console.log(code);
         this.democraticPlaylist.getSpotifyToken(code).subscribe(response => {
-          console.log(response);
           this.user = response.user;
           localStorage.setItem('access_token', response.access_token);
         });

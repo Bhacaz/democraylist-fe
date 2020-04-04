@@ -11,6 +11,7 @@ import {AudioService} from '../audio-player.service';
 export class TrackSummaryComponent implements OnInit, OnDestroy {
 
   @Input() track;
+  @Output() addTrackChange = new EventEmitter();
   showPlayButton: boolean = false;
   currentlyPlaying: boolean = false;
   audioPlayerSubscription;
@@ -76,5 +77,9 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
 
   playPreview() {
     this.audioService.play(this.track.id, this.track.preview_url);
+  }
+
+  addTrack() {
+    this.addTrackChange.emit(this.track.id);
   }
 }

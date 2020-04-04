@@ -1,6 +1,6 @@
 
 .track-summary {
-  height: 6.2em;
+  height: 5.6em;
   padding: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -59,4 +59,8 @@ span.icon {
 
 .album-img-container {
   width: 72px;
+}
+
+.track-description {
+  flex: 1;
 }

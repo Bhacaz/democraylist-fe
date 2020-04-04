@@ -1,4 +1,4 @@
-<div class="track-finder content-center">
+<div class="track-finder container content-center">
   <input type="text"
          id="search-input"
          pInputText
@@ -10,7 +10,7 @@
 
   <div *ngIf="searchResult">
     <div *ngFor="let track of searchResult">
-      <app-track-summary [track]="track" (click)="onClick(track.id)"></app-track-summary>
+      <app-track-summary [track]="track" (addTrackChange)="trackAddedEvent($event)"></app-track-summary>
     </div>
   </div>
 </div>

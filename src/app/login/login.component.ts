@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
     if (!localStorage.getItem('access_token')) {
       this.route.queryParams.subscribe(params => {
         const code = params.code;
-        console.log(code);
         this.democraticPlaylistService.getSpotifyToken(code).subscribe(response => {
-          console.log(response);
           this.user = response.user;
           localStorage.setItem('access_token', response.access_token);
           localStorage.setItem('user', JSON.stringify(response.user));
@@ -38,7 +36,6 @@ export class LoginComponent implements OnInit {
   authSpotify() {
     localStorage.removeItem('access_token');
     this.democraticPlaylistService.getSpotifyAuthUrl().subscribe(response => {
-      console.log(response);
       window.open(response.url, '_self');
     });
   }
