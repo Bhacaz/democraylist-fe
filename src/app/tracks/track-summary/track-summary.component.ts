@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {DemocraticPlaylistService} from '../../democratic-playlist/democratic-playlist.service';
-import {PlaylistChangeService} from '../../democratic-playlist/playlist-change.service';
+import {DemocraticPlaylistService} from '../../democraylist/democratic-playlist.service';
+import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {AudioService} from '../audio-player.service';
 import {MenuItem} from 'primeng/api';
 

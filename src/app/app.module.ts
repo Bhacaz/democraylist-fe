@@ -7,7 +7,7 @@ import {appRoutes} from './app.router';
 import {RouterModule} from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import {AuthInterceptor} from './democratic-playlist/auth-interceptor';
+import {AuthInterceptor} from './democraylist/auth-interceptor';
 import { PlaylistSummaryComponent } from './playlists/playlist-summary/playlist-summary.component';
 import { PlaylistListComponent } from './playlists/playlist-list/playlist-list.component';
 import { PlaylistsNewComponent } from './playlists/playlists-new/playlists-new.component';

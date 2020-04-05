@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DemocraticPlaylistService} from '../../democratic-playlist/democratic-playlist.service';
+import {DemocraticPlaylistService} from '../../democraylist/democratic-playlist.service';
 
 @Component({
   selector: 'app-track-finder',

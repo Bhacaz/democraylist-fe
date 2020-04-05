@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DemocraticPlaylistService} from '../../democratic-playlist/democratic-playlist.service';
-import {PlaylistChangeService} from '../../democratic-playlist/playlist-change.service';
+import {DemocraticPlaylistService} from '../../democraylist/democratic-playlist.service';
+import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 
 @Component({
   selector: 'app-playlist-show',
