@@ -22,71 +22,71 @@ export class DemocraylistService {
   }
 
   getSpotifyAuthUrl(): Observable<any> {
-    return this.http.get(this.backendUrl + '/auth/spotify_login_url');
+    return this.http.get(this.backendUrl + 'auth/spotify_login_url');
   }
 
   getSpotifyToken(code: string): Observable<any> {
-    return this.http.post(this.backendUrl + '/auth/spotify_get_token', { code });
+    return this.http.post(this.backendUrl + 'auth/spotify_get_token', { code });
   }
 
   getRefreshAcessToken(): Observable<any> {
-    return this.http.get(this.backendUrl + '/auth/refresh_access_token');
+    return this.http.get(this.backendUrl + 'auth/refresh_access_token');
   }
 
   getPlaylists(): Observable<any> {
-    return this.http.get(this.backendUrl + '/playlists');
+    return this.http.get(this.backendUrl + 'playlists');
   }
 
   newPlaylist(playlist: any): Observable<any> {
-    return this.http.post(this.backendUrl + '/playlists/create', { playlist });
+    return this.http.post(this.backendUrl + 'playlists/create', { playlist });
   }
 
   getPlaylist(id: number): Observable<any> {
-    return this.http.get(this.backendUrl + '/playlists/' + id);
+    return this.http.get(this.backendUrl + 'playlists/' + id);
   }
 
   getUser(): Observable<any> {
-    return this.http.get(this.backendUrl + '/auth/user');
+    return this.http.get(this.backendUrl + 'auth/user');
   }
 
   // TACKS
 
   searchTracks(query: string): Observable<any> {
     const params = new HttpParams().set('q', query);
-    return this.http.get(this.backendUrl + '/tracks/search', {params});
+    return this.http.get(this.backendUrl + 'tracks/search', {params});
   }
 
   addTrackToPlaylist(playlistId: number, trackId: string) {
-    return this.http.post(this.backendUrl + '/playlists/' + playlistId + '/add_track', { track_id: trackId });
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + 'add_track', { track_id: trackId });
   }
 
   removeTrackToPlaylist(playlistId: number, trackId: string) {
     const params = new HttpParams().set('track_id', trackId);
-    return this.http.delete(this.backendUrl + '/playlists/' + playlistId + '/remove_track', { params });
+    return this.http.delete(this.backendUrl + 'playlists/' + playlistId + 'remove_track', { params });
   }
 
   upVotePatch(trackId: number): Observable<any> {
-    return this.http.patch(this.backendUrl + '/tracks/' + trackId + '/up_vote', {});
+    return this.http.patch(this.backendUrl + 'tracks/' + trackId + 'up_vote', {});
   }
 
   downVotePatch(trackId: number): Observable<any> {
-    return this.http.patch(this.backendUrl + '/tracks/' + trackId + '/down_vote', {});
+    return this.http.patch(this.backendUrl + 'tracks/' + trackId + 'down_vote', {});
   }
 
   getExplore(): Observable<any> {
-    return this.http.get(this.backendUrl + '/playlists/explore');
+    return this.http.get(this.backendUrl + 'playlists/explore');
   }
 
   getSubscriptions(): Observable<any> {
-    return this.http.get(this.backendUrl + '/playlists/subscriptions');
+    return this.http.get(this.backendUrl + 'playlists/subscriptions');
   }
 
   subscripbedToPlaylist(playlistId: number): Observable<any> {
-    return this.http.post(this.backendUrl + '/playlists/' + playlistId + '/subscribed', {});
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + 'subscribed', {});
   }
 
   unsubscripbedToPlaylist(playlistId: number): Observable<any> {
-    return this.http.post(this.backendUrl + '/playlists/' + playlistId + '/unsubscribed', {});
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + 'unsubscribed', {});
   }
 
 }
