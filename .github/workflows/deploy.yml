@@ -27,7 +27,7 @@ jobs:
         if: contains(github.ref, 'master')
         run: |
           set -e
-          BUILD_DIR="dist"
+          BUILD_DIR="dist/${GITHUB_REPOSITORY}"
           cd $BUILD_DIR
           echo "Now deploying to GitHub Pages..."
           REMOTE_REPO="https://${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git" && \
