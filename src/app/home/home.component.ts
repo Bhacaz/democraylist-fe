@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
             this.user = response.user;
             localStorage.setItem('access_token', response.access_token);
           });
+        } else {
+          this.redirectToLogin();
         }
       });
     }
