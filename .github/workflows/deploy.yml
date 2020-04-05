@@ -17,7 +17,8 @@ jobs:
         run: |
           npm install
           npm install -g @angular/cli
-          ng build --prod --base-href https://bhacaz.github.io/${GITHUB_REPOSITORY}/
+          REPONAME="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 2)"
+          ng build --prod --base-href https://bhacaz.github.io/$REPONAME/
         env:
           CI: true
 
@@ -27,12 +28,12 @@ jobs:
         if: contains(github.ref, 'master')
         run: |
           set -e
-          BUILD_DIR="dist"
+          REPONAME="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 2)" && \
+          OWNER="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 1)" && \
+          BUILD_DIR="dist/$REPONAME"
           cd $BUILD_DIR
           echo "Now deploying to GitHub Pages..."
           REMOTE_REPO="https://${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git" && \
-          REPONAME="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 2)" && \
-          OWNER="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 1)" && \
           REMOTE_BRANCH="gh-pages"
           echo $REMOTE_REPO
           git init && \
