@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {DemocraticPlaylistService} from '../../democratic-playlist/democratic-playlist.service';
-import {VoteService} from '../../democratic-playlist/vote.service';
+import {PlaylistChangeService} from '../../democratic-playlist/playlist-change.service';
 import {AudioService} from '../audio-player.service';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-track-summary',
@@ -11,14 +12,16 @@ import {AudioService} from '../audio-player.service';
 export class TrackSummaryComponent implements OnInit, OnDestroy {
 
   @Input() track;
-  @Output() addTrackChange = new EventEmitter();
+  @Input() playlist;
+  @Output() playlistChange = new EventEmitter();
   showPlayButton: boolean = false;
   currentlyPlaying: boolean = false;
   audioPlayerSubscription;
+  menuItems: MenuItem[];
 
   constructor(
     private democraticPlaylistService: DemocraticPlaylistService,
-    private voteService: VoteService,
+    private voteService: PlaylistChangeService,
     private audioService: AudioService
   ) { }
 
@@ -30,6 +33,12 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
       this.currentlyPlaying = trackId === this.track.id;
       this.showPlayButton = this.currentlyPlaying;
     });
+    this.menuItems = [
+      {label: 'Open with spotify', icon: 'fa fa-spotify', command: this.openWithSpotify}
+    ];
+    if (this.playlist && this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id) {
+      this.menuItems.push({label: 'Remove', icon: 'fa fa-minus-circle', command: this.removeTrack});
+    }
   }
 
   ngOnDestroy() {
@@ -79,7 +88,16 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
     this.audioService.play(this.track.id, this.track.preview_url);
   }
 
-  addTrack() {
-    this.addTrackChange.emit(this.track.id);
+  trackChangeTrigger() {
+    this.playlistChange.emit(this.track.id);
+  }
+
+  removeTrack = (event) => {
+    this.democraticPlaylistService.removeTrackToPlaylist(this.playlist.id, this.track.spotify_id)
+      .subscribe(res => this.voteService.voteChanged(this.playlist.id));
+  }
+
+  openWithSpotify = (event) => {
+    window.open(this.track.uri);
   }
 }

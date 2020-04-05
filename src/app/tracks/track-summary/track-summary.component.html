@@ -36,7 +36,11 @@
     <button pButton
             class="ui-button-success ui-button-rounded content-center-content"
             icon="fa fa-plus"
-            (click)="addTrack()">
+            (click)="trackChangeTrigger()">
     </button>
+  </div>
+  <div>
+    <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+    <i class="fa fa-ellipsis-v menu-show-button" (click)="menu.toggle($event)"></i>
   </div>
 </div>

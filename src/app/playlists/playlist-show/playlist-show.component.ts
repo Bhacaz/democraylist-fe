@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DemocraticPlaylistService} from '../../democratic-playlist/democratic-playlist.service';
-import {VoteService} from '../../democratic-playlist/vote.service';
+import {PlaylistChangeService} from '../../democratic-playlist/playlist-change.service';
 
 @Component({
   selector: 'app-playlist-show',
@@ -18,7 +18,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private democraticPlaylistService: DemocraticPlaylistService,
-    private voteService: VoteService
+    private voteService: PlaylistChangeService
   ) {
     this.route.params.subscribe(params => {
       this.playlistId = +params.id;

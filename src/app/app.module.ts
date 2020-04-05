@@ -21,6 +21,8 @@ import { SubscriptionsComponent } from './subscriptions/subscriptions.component'
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
+import {MenuModule} from 'primeng/menu';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import {TabViewModule} from 'primeng/tabview';
     FormsModule,
     InputTextModule,
     ButtonModule,
-    TabViewModule
+    TabViewModule,
+    MenuModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

@@ -4,12 +4,12 @@
   <div class="container playlist-show-tracks-list">
     <div class="track-list">
       <div *ngFor="let track of playlist.tracks_submission">
-        <app-track-summary [track]="track"></app-track-summary>
+        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
       </div>
     </div>
     <div class="track-list">
       <div *ngFor="let track of playlist.tracks">
-        <app-track-summary [track]="track"></app-track-summary>
+        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
       </div>
     </div>
   </div>
@@ -23,14 +23,14 @@
       <p-tabPanel class="panel-tracks" header="Submission">
         <div class="track-list">
           <div *ngFor="let track of playlist.tracks_submission">
-            <app-track-summary [track]="track"></app-track-summary>
+            <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
           </div>
         </div>
       </p-tabPanel>
       <p-tabPanel header="Tracks">
         <div class="track-list">
           <div *ngFor="let track of playlist.tracks">
-            <app-track-summary [track]="track"></app-track-summary>
+            <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
           </div>
         </div>  </p-tabPanel>
     </p-tabView>

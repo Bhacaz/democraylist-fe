@@ -4,7 +4,7 @@ import {Observable, Subject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class VoteService {
+export class PlaylistChangeService {
 
   constructor() { }
 

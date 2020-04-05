@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { VoteService } from './vote.service';
+import { PlaylistChangeService } from './playlist-change.service';
 
-describe('VoteService', () => {
-  let service: VoteService;
+describe('PlaylistChangeService', () => {
+  let service: PlaylistChangeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(VoteService);
+    service = TestBed.inject(PlaylistChangeService);
   });
 
   it('should be created', () => {
