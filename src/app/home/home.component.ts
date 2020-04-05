@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {DemocraticPlaylistService} from '../democraylist/democratic-playlist.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DemocraylistService} from '../democraylist/democraylist.service';
 
 @Component({
   selector: 'app-home',
@@ -14,23 +14,33 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private democraticPlaylist: DemocraticPlaylistService
+    private router: Router,
+    private democraticPlaylist: DemocraylistService
   ) {
     if (localStorage.getItem('access_token')) {
       this.democraticPlaylist.getUser()
-        .subscribe(data => this.user = data.user);
+        .subscribe(data => this.user = data.user,
+            error => this.redirectToLogin());
     } else {
       this.route.queryParams.subscribe(params => {
         const code = params.code;
-        this.democraticPlaylist.getSpotifyToken(code).subscribe(response => {
-          this.user = response.user;
-          localStorage.setItem('access_token', response.access_token);
-        });
+        if (code) {
+          this.democraticPlaylist.getSpotifyToken(code).subscribe(response => {
+            this.user = response.user;
+            localStorage.setItem('access_token', response.access_token);
+          });
+        }
       });
     }
   }
 
   ngOnInit(): void {
 
+  }
+
+  redirectToLogin() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 }

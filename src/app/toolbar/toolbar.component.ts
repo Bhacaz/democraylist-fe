@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {DemocraticPlaylistService} from '../democraylist/democratic-playlist.service';
+import {DemocraylistService} from '../democraylist/democraylist.service';
 
 @Component({
   selector: 'app-toolbar',

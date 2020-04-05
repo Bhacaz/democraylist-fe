@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DemocraticPlaylistService} from '../../democraylist/democratic-playlist.service';
+import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {Router} from '@angular/router';
 import {Playlist} from '../../models/playlist';
 
@@ -14,7 +14,7 @@ export class PlaylistsNewComponent implements OnInit {
   description: string;
   song_size: number;
 
-  constructor(private democraticPlaylist: DemocraticPlaylistService,
+  constructor(private democraticPlaylist: DemocraylistService,
               private router: Router) { }
 
   ngOnInit(): void {

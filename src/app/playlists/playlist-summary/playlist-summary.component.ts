@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {DemocraticPlaylistService} from '../../democraylist/democratic-playlist.service';
+import {DemocraylistService} from '../../democraylist/democraylist.service';
 
 @Component({
   selector: 'app-playlist-summary',
@@ -13,7 +13,7 @@ export class PlaylistSummaryComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private democraticPlaylistService: DemocraticPlaylistService
+    private democraticPlaylistService: DemocraylistService
   ) { }
 
   ngOnInit(): void {

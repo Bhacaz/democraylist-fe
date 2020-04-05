@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DemocraticPlaylistService} from '../../democraylist/democratic-playlist.service';
+import {DemocraylistService} from '../../democraylist/democraylist.service';
 
 @Component({
   selector: 'app-track-finder',
@@ -13,7 +13,7 @@ export class TrackFinderComponent implements OnInit {
   @Output() trackSelected = new EventEmitter();
 
   constructor(
-    private democraticPlaylistService: DemocraticPlaylistService,
+    private democraticPlaylistService: DemocraylistService,
   ) { }
 
   ngOnInit(): void {

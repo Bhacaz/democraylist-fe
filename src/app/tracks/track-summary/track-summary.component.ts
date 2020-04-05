@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {DemocraticPlaylistService} from '../../democraylist/democratic-playlist.service';
+import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {AudioService} from '../audio-player.service';
 import {MenuItem} from 'primeng/api';
@@ -20,7 +20,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   menuItems: MenuItem[];
 
   constructor(
-    private democraticPlaylistService: DemocraticPlaylistService,
+    private democraticPlaylistService: DemocraylistService,
     private voteService: PlaylistChangeService,
     private audioService: AudioService
   ) { }

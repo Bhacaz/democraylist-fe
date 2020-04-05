@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DemocraticPlaylistService} from '../democraylist/democratic-playlist.service';
+import {DemocraylistService} from '../democraylist/democraylist.service';
 
 @Component({
   selector: 'app-subscriptions',
@@ -11,7 +11,7 @@ export class SubscriptionsComponent implements OnInit {
   playlists: [];
 
   constructor(
-    private democraticPlaylistService: DemocraticPlaylistService
+    private democraticPlaylistService: DemocraylistService
   ) { }
 
   ngOnInit(): void {

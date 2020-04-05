@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DemocraticPlaylistService } from './democratic-playlist.service';
+import { DemocraylistService } from './democraylist.service';
 
-describe('DemocraticPlaylistService', () => {
-  let service: DemocraticPlaylistService;
+describe('DemocraylistService', () => {
+  let service: DemocraylistService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DemocraticPlaylistService);
+    service = TestBed.inject(DemocraylistService);
   });
 
   it('should be created', () => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DemocraticPlaylistService} from '../democraylist/democratic-playlist.service';
+import {DemocraylistService} from '../democraylist/democraylist.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -15,17 +15,19 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private democraticPlaylistService: DemocraticPlaylistService
+    private democraticPlaylistService: DemocraylistService
   ) {
     if (!localStorage.getItem('access_token')) {
       this.route.queryParams.subscribe(params => {
         const code = params.code;
-        this.democraticPlaylistService.getSpotifyToken(code).subscribe(response => {
-          this.user = response.user;
-          localStorage.setItem('access_token', response.access_token);
-          localStorage.setItem('user', JSON.stringify(response.user));
-          this.router.navigate(['/']);
-        });
+        if (code) {
+          this.democraticPlaylistService.getSpotifyToken(code).subscribe(response => {
+            this.user = response.user;
+            localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('user', JSON.stringify(response.user));
+            this.router.navigate(['/']);
+          });
+        }
       });
     }
   }
