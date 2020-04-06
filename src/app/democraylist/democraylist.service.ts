@@ -57,20 +57,20 @@ export class DemocraylistService {
   }
 
   addTrackToPlaylist(playlistId: number, trackId: string) {
-    return this.http.post(this.backendUrl + 'playlists/' + playlistId + 'add_track', { track_id: trackId });
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/add_track', { track_id: trackId });
   }
 
   removeTrackToPlaylist(playlistId: number, trackId: string) {
     const params = new HttpParams().set('track_id', trackId);
-    return this.http.delete(this.backendUrl + 'playlists/' + playlistId + 'remove_track', { params });
+    return this.http.delete(this.backendUrl + 'playlists/' + playlistId + '/remove_track', { params });
   }
 
   upVotePatch(trackId: number): Observable<any> {
-    return this.http.patch(this.backendUrl + 'tracks/' + trackId + 'up_vote', {});
+    return this.http.patch(this.backendUrl + 'tracks/' + trackId + '/up_vote', {});
   }
 
   downVotePatch(trackId: number): Observable<any> {
-    return this.http.patch(this.backendUrl + 'tracks/' + trackId + 'down_vote', {});
+    return this.http.patch(this.backendUrl + 'tracks/' + trackId + '/down_vote', {});
   }
 
   getExplore(): Observable<any> {
@@ -82,11 +82,11 @@ export class DemocraylistService {
   }
 
   subscripbedToPlaylist(playlistId: number): Observable<any> {
-    return this.http.post(this.backendUrl + 'playlists/' + playlistId + 'subscribed', {});
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/subscribed', {});
   }
 
   unsubscripbedToPlaylist(playlistId: number): Observable<any> {
-    return this.http.post(this.backendUrl + 'playlists/' + playlistId + 'unsubscribed', {});
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/unsubscribed', {});
   }
 
 }
