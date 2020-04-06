@@ -34,7 +34,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
       this.showPlayButton = this.currentlyPlaying;
     });
     this.menuItems = [
-      {label: 'Open with spotify', icon: 'fa fa-spotify', command: this.openWithSpotify}
+      {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify}
     ];
     if (this.playlist && this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id) {
       this.menuItems.push({label: 'Remove', icon: 'fa fa-minus-circle', command: this.removeTrack});

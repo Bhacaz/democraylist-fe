@@ -5,9 +5,14 @@
       <img class="playlist-img" [src]="playlist.image_url || './assets/images/playlistPlaceholder.png'" height="100%" width="48px">
     </div>
     <div class="container column playlist-info">
-        <h2 class="no-margin">{{playlist.name}}</h2>
+        <h3 class="no-margin">{{playlist.name}}</h3>
         <p class="no-margin">{{playlist.description}}</p>
     </div>
+  </div>
+  <div>
+    <p class="no-margin">{{playlist.created_by.name || playlist.created_by.spotify_id}}<br>
+      {{playlist.up_vote_count}} <i class="fa fa-arrow-up up-vote-arrow"></i> {{playlist.tracks_count}} | {{playlist.tracks_submission_count}}
+    </p>
   </div>
   <div class="content-center" *ngIf="!my_playlist()">
     <button
