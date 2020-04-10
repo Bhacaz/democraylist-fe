@@ -22,7 +22,9 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {MenuModule} from 'primeng/menu';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoadingComponent } from './common/loading/loading.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     TrackSummaryComponent,
     ToolbarComponent,
     ExploreComponent,
-    SubscriptionsComponent
+    SubscriptionsComponent,
+    LoadingComponent
   ],
   imports: [
     HttpClientModule,
@@ -49,7 +52,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ButtonModule,
     TabViewModule,
     MenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProgressSpinnerModule
   ],
   providers: [
     {

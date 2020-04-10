@@ -11,12 +11,15 @@ export class LoginComponent implements OnInit {
 
   user;
   playlists: any = [];
+  isLoading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private democraticPlaylistService: DemocraylistService
-  ) {
+  ) { }
+
+  ngOnInit(): void {
     if (!localStorage.getItem('access_token')) {
       this.route.queryParams.subscribe(params => {
         const code = params.code;
@@ -27,15 +30,17 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('user', JSON.stringify(response.user));
             this.router.navigate(['/']);
           });
+        } else {
+          this.isLoading = false;
         }
       });
+    } else {
+      this.authSpotify();
     }
   }
 
-  ngOnInit(): void {
-  }
-
   authSpotify() {
+    this.isLoading = true;
     localStorage.removeItem('access_token');
     this.democraticPlaylistService.getSpotifyAuthUrl().subscribe(response => {
       window.open(response.url, '_self');

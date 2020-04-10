@@ -1,4 +1,8 @@
-<div id="login-button-container" class="content-center">
+<span *ngIf="isLoading">
+  <app-loading></app-loading>
+</span>
+
+<div *ngIf="!isLoading" id="login-button-container" class="content-center">
   <button pButton
           id="login-button"
           type="button"
@@ -6,4 +10,3 @@
           label="Login with Spotify"
           (click)="authSpotify()"></button>
 </div>
-

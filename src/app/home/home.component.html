@@ -1,5 +1,9 @@
 
-<div class="container column">
+<span *ngIf="isLoading">
+  <app-loading></app-loading>
+</span>
+
+<div *ngIf="!isLoading" class="container column">
   <div>
     <h2>
       <a routerLink="/playlists">My Playlists</a>
