@@ -18,14 +18,15 @@
     <button
       pButton
       *ngIf="!playlist.subscribed"
-      class="subscribed-button content-center-content"
-      label="Subscribed"
+      class="ui-button-success ui-button-rounded subscribed-button content-center-content"
+      icon="fa fa-heart-o"
       (click)="subscribed()"></button>
     <button
       pButton
       *ngIf="playlist.subscribed"
-      class="subscribed-button content-center-content"
-      label="Unsubscribed"
+      class="ui-button-success ui-button-rounded subscribed-button content-center-content"
+      icon="fa fa-heart"
       (click)="unsubscribed()"></button>
+
   </div>
 </div>
