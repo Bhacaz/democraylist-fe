@@ -15,11 +15,16 @@ export class AudioService {
   }
 
   play(trackId: string, url: string) {
-    this.currentlyPlayingTrackId = trackId;
-    this.audioObj.src = url;
-    this.audioObj.load();
-    this.audioObj.play();
-    this.player$.next(this.currentlyPlayingTrackId);
+    if (this.currentlyPlayingTrackId === trackId) {
+      this.audioObj.pause();
+      this.player$.next(null);
+    } else {
+      this.currentlyPlayingTrackId = trackId;
+      this.audioObj.src = url;
+      this.audioObj.load();
+      this.audioObj.play();
+      this.player$.next(this.currentlyPlayingTrackId);
+    }
   }
 
   private resetCurrentlyPlayingTrackId = (event) => {
