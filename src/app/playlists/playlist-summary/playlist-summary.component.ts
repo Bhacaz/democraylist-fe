@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-playlist-summary',
@@ -10,6 +11,7 @@ import {DemocraylistService} from '../../democraylist/democraylist.service';
 export class PlaylistSummaryComponent implements OnInit {
 
   @Input() playlist;
+  menuItems: MenuItem[];
 
   constructor(
     private router: Router,
@@ -17,6 +19,9 @@ export class PlaylistSummaryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.menuItems = [
+      {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify},
+    ];
   }
 
   showPlaylist() {
@@ -39,5 +44,9 @@ export class PlaylistSummaryComponent implements OnInit {
 
   my_playlist(): boolean {
     return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id;
+  }
+
+  openWithSpotify = (event) => {
+    window.open(this.playlist.uri);
   }
 }

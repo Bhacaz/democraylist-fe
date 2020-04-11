@@ -27,6 +27,9 @@
       class="ui-button-success ui-button-rounded subscribed-button content-center-content"
       icon="fa fa-heart"
       (click)="unsubscribed()"></button>
-
+  </div>
+  <div class="dot-menu">
+    <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+    <i class="fa fa-ellipsis-v menu-show-button" (click)="menu.toggle($event)"></i>
   </div>
 </div>
