@@ -18,6 +18,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   currentlyPlaying: boolean = false;
   audioPlayerSubscription;
   menuItems: MenuItem[];
+  showInfo: boolean = false;
 
   constructor(
     private democraticPlaylistService: DemocraylistService,
@@ -34,7 +35,8 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
       this.showPlayButton = this.currentlyPlaying;
     });
     this.menuItems = [
-      {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify}
+      {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify},
+      {label: 'Show info', icon: 'fa fa-info-circle', command: this.toggleShowInfo}
     ];
     if (this.playlist && this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id) {
       this.menuItems.push({label: 'Remove', icon: 'fa fa-minus-circle', command: this.removeTrack});
@@ -99,5 +101,10 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
 
   openWithSpotify = (event) => {
     window.open(this.track.uri);
+  }
+
+  toggleShowInfo = (event) =>  {
+    console.log(123);
+    this.showInfo = true;
   }
 }

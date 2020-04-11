@@ -45,3 +45,9 @@
     <i class="fa fa-ellipsis-v menu-show-button" (click)="menu.toggle($event)"></i>
   </div>
 </div>
+
+<p-dialog header="{{track.name}}" [(visible)]="showInfo">
+  <span class="bold">Added by:</span> {{track.added_by.name || track.added_by.spotify_id}}<br>
+  <span class="bold">Up vote:</span> {{track.up_vote_count}}<br>
+  <span class="bold">Down vote:</span> {{track.down_vote_count}}
+</p-dialog>

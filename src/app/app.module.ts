@@ -25,6 +25,7 @@ import {MenuModule} from 'primeng/menu';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoadingComponent } from './common/loading/loading.component';
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { LoadingComponent } from './common/loading/loading.component';
     TabViewModule,
     MenuModule,
     BrowserAnimationsModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    DialogModule
   ],
   providers: [
     {
