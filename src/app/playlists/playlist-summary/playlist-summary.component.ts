@@ -47,6 +47,6 @@ export class PlaylistSummaryComponent implements OnInit {
   }
 
   openWithSpotify = (event) => {
-    window.open(this.playlist.uri);
+    window.open(this.playlist.uri, '_blank');
   }
 }

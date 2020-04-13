@@ -100,7 +100,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   }
 
   openWithSpotify = (event) => {
-    window.open(this.track.uri);
+    window.open(this.track.uri, '_blank');
   }
 
   toggleShowInfo = (event) =>  {
