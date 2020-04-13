@@ -108,3 +108,15 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
     this.showInfo = true;
   }
 }
+
+// const date = new Date();
+//
+// const formattedDate = date.toLocaleString("en-GB", {
+//   day: "numeric",
+//   month: "short",
+//   year: "numeric",
+//   hour: "numeric",
+//   minute: "2-digit"
+// });
+//
+// console.log(formattedDate); // '18 Jan 2020, 18:20'
