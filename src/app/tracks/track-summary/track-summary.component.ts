@@ -107,16 +107,14 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
     console.log(123);
     this.showInfo = true;
   }
-}
 
-// const date = new Date();
-//
-// const formattedDate = date.toLocaleString("en-GB", {
-//   day: "numeric",
-//   month: "short",
-//   year: "numeric",
-//   hour: "numeric",
-//   minute: "2-digit"
-// });
-//
-// console.log(formattedDate); // '18 Jan 2020, 18:20'
+  releaseDate(): string {
+    const date = new Date(this.track.album.release_date);
+
+    return date.toLocaleString('fr-CA', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
+  }
+}
