@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  backendUrl: 'https://democraylist.herokuapp.com/'
+  backendUrl: 'http://localhost:3000/'
+  // backendUrl: 'https://democraylist.herokuapp.com/'
 };

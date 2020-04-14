@@ -1,4 +1,4 @@
-import {Routes} from "@angular/router";
+import {Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {PlaylistListComponent} from './playlists/playlist-list/playlist-list.component';
@@ -6,9 +6,11 @@ import {PlaylistsNewComponent} from './playlists/playlists-new/playlists-new.com
 import {PlaylistShowComponent} from './playlists/playlist-show/playlist-show.component';
 import {ExploreComponent} from './explore/explore.component';
 import {SubscriptionsComponent} from './subscriptions/subscriptions.component';
+import {TryNotifComponent} from './common/try-notif/try-notif.component';
 
 export const appRoutes: Routes = [
-  { path: '',      component: HomeComponent },
+  { path: '',      component: TryNotifComponent },
+  // { path: '',      component: HomeComponent },
   { path: 'login',      component: LoginComponent },
   { path: 'auth/spotify/callback', component: LoginComponent },
   { path: 'explore', component: ExploreComponent },
