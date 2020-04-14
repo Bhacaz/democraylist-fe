@@ -26,6 +26,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoadingComponent } from './common/loading/loading.component';
 import {DialogModule} from 'primeng/dialog';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import {DialogModule} from 'primeng/dialog';
     MenuModule,
     BrowserAnimationsModule,
     ProgressSpinnerModule,
-    DialogModule
+    DialogModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
