@@ -28,6 +28,7 @@ import { LoadingComponent } from './common/loading/loading.component';
 import {DialogModule} from 'primeng/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PlaylistStatsComponent } from './playlists/playlist-stats/playlist-stats.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { environment } from '../environments/environment';
     ToolbarComponent,
     ExploreComponent,
     SubscriptionsComponent,
-    LoadingComponent
+    LoadingComponent,
+    PlaylistStatsComponent
   ],
   imports: [
     HttpClientModule,

@@ -21,6 +21,7 @@ export class PlaylistSummaryComponent implements OnInit {
   ngOnInit(): void {
     this.menuItems = [
       {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify},
+      {label: 'Statistic', icon: 'fa fa-bar-chart', command: this.openStats}
     ];
   }
 
@@ -48,5 +49,10 @@ export class PlaylistSummaryComponent implements OnInit {
 
   openWithSpotify = (event) => {
     window.open(this.playlist.uri, '_blank');
+  }
+
+  openStats = (event) => {
+    console.log('123');
+    this.router.navigate(['/playlists', this.playlist.id, 'stats']);
   }
 }

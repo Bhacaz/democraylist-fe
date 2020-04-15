@@ -6,6 +6,7 @@ import {PlaylistsNewComponent} from './playlists/playlists-new/playlists-new.com
 import {PlaylistShowComponent} from './playlists/playlist-show/playlist-show.component';
 import {ExploreComponent} from './explore/explore.component';
 import {SubscriptionsComponent} from './subscriptions/subscriptions.component';
+import {PlaylistStatsComponent} from './playlists/playlist-stats/playlist-stats.component';
 
 export const appRoutes: Routes = [
   { path: '',      component: HomeComponent },
@@ -16,6 +17,7 @@ export const appRoutes: Routes = [
   { path: 'playlists', component: PlaylistListComponent },
   { path: 'playlists/new', component: PlaylistsNewComponent },
   { path: 'playlists/:id', component: PlaylistShowComponent },
+  { path: 'playlists/:id/stats', component: PlaylistStatsComponent },
   {
     path: '**',
     redirectTo: '/',
