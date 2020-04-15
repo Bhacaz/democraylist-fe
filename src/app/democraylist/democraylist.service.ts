@@ -73,6 +73,10 @@ export class DemocraylistService {
     return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/unsubscribed', {});
   }
 
+  getPlaylistStats(id: number): Observable<any> {
+    return this.http.get(this.backendUrl + 'playlists/' + id + '/stats');
+  }
+
   // TACKS
 
   searchTracks(query: string): Observable<any> {

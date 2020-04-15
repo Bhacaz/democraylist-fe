@@ -29,6 +29,7 @@ import {DialogModule} from 'primeng/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PlaylistStatsComponent } from './playlists/playlist-stats/playlist-stats.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { PlaylistStatsComponent } from './playlists/playlist-stats/playlist-stat
     BrowserAnimationsModule,
     ProgressSpinnerModule,
     DialogModule,
+    TableModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

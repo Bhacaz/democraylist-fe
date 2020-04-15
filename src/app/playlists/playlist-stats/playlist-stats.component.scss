@@ -1,0 +1,21 @@
+::ng-deep .ui-table-thead {
+  font-size: 0.8em;
+}
+
+#stats-table {
+  margin-left: -1.2em;
+  margin-right: -1.2em;
+}
+
+th {
+    background-color: #00ffa5 !important;
+    border: 0 !important;
+}
+
+td {
+  border: 0 !important;
+}
+
+.user-cell {
+  font-weight: bold;
+}
