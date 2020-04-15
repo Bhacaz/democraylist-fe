@@ -13,13 +13,15 @@ export class DemocraylistService {
   constructor(
     private http: HttpClient
   ) {
-    // Every 10 minutes
-    interval(1000 * 60 * 10).subscribe(x => {
+    // Every 45 minutes
+    interval(1000 * 60 * 45).subscribe(x => {
       this.getRefreshAcessToken().subscribe(res => {
         localStorage.setItem('access_token', res.access_token);
       });
     });
   }
+
+  // USER
 
   getSpotifyAuthUrl(): Observable<any> {
     return this.http.get(this.backendUrl + 'auth/spotify_login_url');
@@ -33,6 +35,16 @@ export class DemocraylistService {
     return this.http.get(this.backendUrl + 'auth/refresh_access_token');
   }
 
+  getUser(): Observable<any> {
+    return this.http.get(this.backendUrl + 'auth/user');
+  }
+
+  addPushSubscriber(sub: any): Observable<any> {
+    return this.http.post(this.backendUrl + 'users/push_notif_preference', {preference: sub});
+  }
+
+  // PLAYLIST
+
   getPlaylists(): Observable<any> {
     return this.http.get(this.backendUrl + 'playlists');
   }
@@ -45,8 +57,20 @@ export class DemocraylistService {
     return this.http.get(this.backendUrl + 'playlists/' + id);
   }
 
-  getUser(): Observable<any> {
-    return this.http.get(this.backendUrl + 'auth/user');
+  getExplore(): Observable<any> {
+    return this.http.get(this.backendUrl + 'playlists/explore');
+  }
+
+  getSubscriptions(): Observable<any> {
+    return this.http.get(this.backendUrl + 'playlists/subscriptions');
+  }
+
+  subscripbedToPlaylist(playlistId: number): Observable<any> {
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/subscribed', {});
+  }
+
+  unsubscripbedToPlaylist(playlistId: number): Observable<any> {
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/unsubscribed', {});
   }
 
   // TACKS
@@ -71,25 +95,4 @@ export class DemocraylistService {
   downVotePatch(trackId: number): Observable<any> {
     return this.http.patch(this.backendUrl + 'tracks/' + trackId + '/down_vote', {});
   }
-
-  getExplore(): Observable<any> {
-    return this.http.get(this.backendUrl + 'playlists/explore');
-  }
-
-  getSubscriptions(): Observable<any> {
-    return this.http.get(this.backendUrl + 'playlists/subscriptions');
-  }
-
-  subscripbedToPlaylist(playlistId: number): Observable<any> {
-    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/subscribed', {});
-  }
-
-  unsubscripbedToPlaylist(playlistId: number): Observable<any> {
-    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/unsubscribed', {});
-  }
-
-  addPushSubscriber(sub: any): Observable<any> {
-    return this.http.post(this.backendUrl + 'users/push_notif_preference', {preference: sub});
-  }
-
 }
