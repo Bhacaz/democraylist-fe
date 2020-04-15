@@ -8,12 +8,12 @@
     </a>
   </div>
 
-  <div class="user-name content-center">
+  <div *ngIf="user" class="user-name content-center">
     <span class="content-center-content">
       <h3>{{user.display_name}}</h3>
     </span>
   </div>
-  <div class="user-image" >
+  <div *ngIf="user" class="user-image" >
     <img class="round-image" src="{{user.images[0].url}}" height="100%">
   </div>
 </div>

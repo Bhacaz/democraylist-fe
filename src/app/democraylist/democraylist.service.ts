@@ -60,9 +60,8 @@ export class DemocraylistService {
     return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/add_track', { track_id: trackId });
   }
 
-  removeTrackToPlaylist(playlistId: number, trackId: string) {
-    const params = new HttpParams().set('track_id', trackId);
-    return this.http.delete(this.backendUrl + 'playlists/' + playlistId + '/remove_track', { params });
+  removeTrackToPlaylist(trackId: string) {
+    return this.http.delete(this.backendUrl + 'tracks/' + trackId);
   }
 
   upVotePatch(trackId: number): Observable<any> {
