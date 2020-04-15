@@ -23,8 +23,4 @@ export class PlaylistStatsComponent implements OnInit {
       this.democraylistService.getPlaylistStats(this.playlistId).subscribe(data => this.stats = data);
     });
   }
-
-  toInt(float: number): number {
-    return Math.floor(float);
-  }
 }

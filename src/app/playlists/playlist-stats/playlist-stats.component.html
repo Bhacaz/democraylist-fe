@@ -17,8 +17,8 @@
           <span class="content-center-content">{{stat.user.display_name}}</span>
         </td>
         <td>{{stat.submission_count}}</td>
-        <td>{{stat.submission_upvote_count}} ({{toInt(stat.submission_upvote_count/stat.submission_count * 100)}}%)</td>
-        <td>{{stat.submission_downvote_count}} ({{toInt(stat.submission_downvote_count/stat.submission_count*100)}}%)</td>
+        <td>{{stat.submission_upvote_count}} ({{(stat.submission_upvote_count/stat.submission_count).toFixed(2)}})</td>
+        <td>{{stat.submission_downvote_count}} ({{(stat.submission_downvote_count/stat.submission_count).toFixed(2)}})</td>
         <td>{{stat.upvote_count}}</td>
         <td>{{stat.downvote_count}}</td>
       </tr>
