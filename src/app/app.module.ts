@@ -60,7 +60,7 @@ import { TryNotifComponent } from './common/try-notif/try-notif.component';
     BrowserAnimationsModule,
     ProgressSpinnerModule,
     DialogModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
