@@ -95,7 +95,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   }
 
   removeTrack = (event) => {
-    this.democraticPlaylistService.removeTrackToPlaylist(this.playlist.id, this.track.spotify_id)
+    this.democraticPlaylistService.removeTrackToPlaylist(this.track.id)
       .subscribe(res => this.voteService.voteChanged(this.playlist.id));
   }
 
