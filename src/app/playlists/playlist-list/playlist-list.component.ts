@@ -12,7 +12,7 @@ export class PlaylistListComponent implements OnInit {
   playlists: Array<any> = [];
 
   constructor(
-    private democraticPlaylistService: DemocraylistService,
+    private democraylistService: DemocraylistService,
     private router: Router
   ) { }
 
@@ -21,7 +21,7 @@ export class PlaylistListComponent implements OnInit {
   }
 
   getPlaylists() {
-    this.democraticPlaylistService.getPlaylists()
+    this.democraylistService.getPlaylists()
       .subscribe(data => this.playlists = data);
   }
 

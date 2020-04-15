@@ -13,7 +13,7 @@ export class TrackFinderComponent implements OnInit {
   @Output() trackSelected = new EventEmitter();
 
   constructor(
-    private democraticPlaylistService: DemocraylistService,
+    private democraylistService: DemocraylistService,
   ) { }
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class TrackFinderComponent implements OnInit {
 
   searchTrack(): void {
     if (this.query) {
-      this.democraticPlaylistService.searchTracks(this.query)
+      this.democraylistService.searchTracks(this.query)
         .subscribe(data => {
           this.searchResult = data;
         });

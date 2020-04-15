@@ -15,7 +15,7 @@ export class PlaylistSummaryComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private democraticPlaylistService: DemocraylistService
+    private democraylistService: DemocraylistService
   ) { }
 
   ngOnInit(): void {
@@ -30,14 +30,14 @@ export class PlaylistSummaryComponent implements OnInit {
   }
 
   subscribed() {
-    this.democraticPlaylistService.subscripbedToPlaylist(this.playlist.id)
+    this.democraylistService.subscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = true;
       });
   }
 
   unsubscribed() {
-    this.democraticPlaylistService.unsubscripbedToPlaylist(this.playlist.id)
+    this.democraylistService.unsubscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = false;
       });

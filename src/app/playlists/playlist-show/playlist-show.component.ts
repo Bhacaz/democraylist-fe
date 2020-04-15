@@ -17,7 +17,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private democraticPlaylistService: DemocraylistService,
+    private democraylistService: DemocraylistService,
     private voteService: PlaylistChangeService
   ) {
     this.route.params.subscribe(params => {
@@ -38,12 +38,12 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   }
 
   getPlaylist() {
-    this.democraticPlaylistService.getPlaylist(this.playlistId)
+    this.democraylistService.getPlaylist(this.playlistId)
       .subscribe(data => this.playlist = data);
   }
 
   addTrack(trackId: string) {
-    this.democraticPlaylistService.addTrackToPlaylist(this.playlistId, trackId)
+    this.democraylistService.addTrackToPlaylist(this.playlistId, trackId)
       .subscribe(data => this.playlist = data);
   }
 

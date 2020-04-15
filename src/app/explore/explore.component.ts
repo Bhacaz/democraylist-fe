@@ -11,11 +11,11 @@ export class ExploreComponent implements OnInit {
   playlists: [];
 
   constructor(
-    private democraticPlaylistService: DemocraylistService
+    private democraylistService: DemocraylistService
   ) { }
 
   ngOnInit(): void {
-    this.democraticPlaylistService.getExplore()
+    this.democraylistService.getExplore()
       .subscribe(data => {
       this.playlists = data;
     });

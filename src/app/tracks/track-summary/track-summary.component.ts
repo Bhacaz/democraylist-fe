@@ -21,7 +21,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   showInfo: boolean = false;
 
   constructor(
-    private democraticPlaylistService: DemocraylistService,
+    private democraylistService: DemocraylistService,
     private voteService: PlaylistChangeService,
     private audioService: AudioService
   ) { }
@@ -49,7 +49,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   }
 
   upVote() {
-    this.democraticPlaylistService.upVotePatch(this.track.id)
+    this.democraylistService.upVotePatch(this.track.id)
       .subscribe(data => {
         if (this.track.my_vote) {
           this.track.vote_count += 2;
@@ -62,7 +62,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   }
 
   downVote() {
-    this.democraticPlaylistService.downVotePatch(this.track.id)
+    this.democraylistService.downVotePatch(this.track.id)
       .subscribe(data => {
         if (this.track.my_vote) {
           this.track.vote_count -= 2;
@@ -95,7 +95,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   }
 
   removeTrack = (event) => {
-    this.democraticPlaylistService.removeTrackToPlaylist(this.track.id)
+    this.democraylistService.removeTrackToPlaylist(this.track.id)
       .subscribe(res => this.voteService.voteChanged(this.playlist.id));
   }
 

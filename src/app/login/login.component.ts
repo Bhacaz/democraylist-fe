@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private democraticPlaylistService: DemocraylistService
+    private democraylistService: DemocraylistService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       this.route.queryParams.subscribe(params => {
         const code = params.code;
         if (code) {
-          this.democraticPlaylistService.getSpotifyToken(code).subscribe(response => {
+          this.democraylistService.getSpotifyToken(code).subscribe(response => {
             this.user = response.user;
             localStorage.setItem('access_token', response.access_token);
             localStorage.setItem('user', JSON.stringify(response.user));
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   authSpotify() {
     this.isLoading = true;
     localStorage.removeItem('access_token');
-    this.democraticPlaylistService.getSpotifyAuthUrl().subscribe(response => {
+    this.democraylistService.getSpotifyAuthUrl().subscribe(response => {
       window.open(response.url, '_self');
     });
   }

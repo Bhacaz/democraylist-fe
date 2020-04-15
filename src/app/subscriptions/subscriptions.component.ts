@@ -11,11 +11,11 @@ export class SubscriptionsComponent implements OnInit {
   playlists: [];
 
   constructor(
-    private democraticPlaylistService: DemocraylistService
+    private democraylistService: DemocraylistService
   ) { }
 
   ngOnInit(): void {
-    this.democraticPlaylistService.getSubscriptions()
+    this.democraylistService.getSubscriptions()
       .subscribe(data => {
         this.playlists = data;
       });
