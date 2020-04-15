@@ -28,8 +28,6 @@ import { LoadingComponent } from './common/loading/loading.component';
 import {DialogModule} from 'primeng/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { TryNotifComponent } from './common/try-notif/try-notif.component';
-
 
 @NgModule({
   declarations: [
@@ -45,8 +43,7 @@ import { TryNotifComponent } from './common/try-notif/try-notif.component';
     ToolbarComponent,
     ExploreComponent,
     SubscriptionsComponent,
-    LoadingComponent,
-    TryNotifComponent
+    LoadingComponent
   ],
   imports: [
     HttpClientModule,

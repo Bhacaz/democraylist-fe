@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DemocraylistService} from '../democraylist/democraylist.service';
+import {SwPush} from '@angular/service-worker';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private democraticPlaylist: DemocraylistService
+    private democraticPlaylist: DemocraylistService,
+    private swPush: SwPush
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,7 @@ export class HomeComponent implements OnInit {
         .subscribe(data => {
           this.isLoading = false;
           this.user = data.user;
+          this.askForNotificationPermission();
           }, error => this.redirectToLogin());
     } else {
       this.route.queryParams.subscribe(params => {
@@ -47,5 +51,18 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('access_token');
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
+  }
+
+  askForNotificationPermission() {
+    const isEnabled = this.swPush.isEnabled;
+    const isGranted = Notification.permission === 'granted';
+
+    if (!isGranted && isEnabled) {
+      this.swPush.requestSubscription({
+        serverPublicKey: environment.vapidPublicKey
+      })
+        .then(sub => this.democraticPlaylist.addPushSubscriber(sub).subscribe())
+        .catch(err => console.error('Could not subscribe to notifications', err));
+    }
   }
 }
