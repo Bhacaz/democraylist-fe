@@ -11,8 +11,9 @@
 }
 
 .playlist-show-tracks-list {
-  margin-left: -1em;
-  margin-right: -1em;
+  margin-left: -1.5em;
+  margin-right: -1.5em;
+  padding-top: 1em;
 }
 
 ::ng-deep .ui-tabview-panels {
@@ -23,4 +24,15 @@
 
 ::ng-deep .ui-tabview-nav {
   padding-left: 1em !important;
+}
+
+#track-finder-header {
+  margin-top: -3.5em;
+}
+
+.playlist-header-container {
+  overflow: hidden;
+  height: 11em;
+  margin-right: -1.2em;
+  margin-left: -1.2em;
 }

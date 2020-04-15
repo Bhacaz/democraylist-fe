@@ -1,14 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MenuItem} from 'primeng/api';
 import {Router} from '@angular/router';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
-import {MenuItem} from 'primeng/api';
 
 @Component({
-  selector: 'app-playlist-summary',
-  templateUrl: './playlist-summary.component.html',
-  styleUrls: ['./playlist-summary.component.scss']
+  selector: 'app-playlist-header',
+  templateUrl: './playlist-header.component.html',
+  styleUrls: ['./playlist-header.component.scss']
 })
-export class PlaylistSummaryComponent implements OnInit {
+export class PlaylistHeaderComponent implements OnInit {
 
   @Input() playlist;
   menuItems: MenuItem[];
@@ -21,22 +21,12 @@ export class PlaylistSummaryComponent implements OnInit {
   ngOnInit(): void {
     this.menuItems = [
       {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify},
-      {label: 'Statistic', icon: 'fa fa-bar-chart', command: this.openStats}
+      {label: 'Statistic', icon: 'fa fa-bar-chart', command: this.openStats},
+      {label: 'Unsubscribe', icon: 'fa fa-heart', command: this.unsubscribed}
     ];
   }
 
-  showPlaylist() {
-    this.router.navigate(['/playlists', this.playlist.id]);
-  }
-
-  subscribed() {
-    this.democraylistService.subscripbedToPlaylist(this.playlist.id)
-      .subscribe(data => {
-        this.playlist.subscribed = true;
-      });
-  }
-
-  unsubscribed() {
+  unsubscribed = (event) => {
     this.democraylistService.unsubscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = false;
@@ -44,15 +34,12 @@ export class PlaylistSummaryComponent implements OnInit {
       });
   }
 
-  myPlaylist(): boolean {
-    return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id;
-  }
-
   openWithSpotify = (event) => {
     window.open(this.playlist.uri, '_blank');
   }
 
   openStats = (event) => {
+    console.log('123');
     this.router.navigate(['/playlists', this.playlist.id, 'stats']);
   }
 }

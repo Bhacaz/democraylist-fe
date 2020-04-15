@@ -1,23 +1,27 @@
-<span *ngIf="playlist && innerWidth >= 900">
-  <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
-  <app-playlist-summary [playlist]="playlist"></app-playlist-summary>
-  <div class="container playlist-show-tracks-list">
-    <div class="track-list">
-      <div *ngFor="let track of playlist.tracks_submission">
-        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
-      </div>
-    </div>
-    <div class="track-list">
-      <div *ngFor="let track of playlist.tracks">
-        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
-      </div>
-    </div>
-  </div>
-</span>
+<!--<span *ngIf="playlist && innerWidth >= 900">-->
+<!--  <app-playlist-header [playlist]="playlist"></app-playlist-header>-->
+<!--  <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>-->
+<!--  <div class="container playlist-show-tracks-list">-->
+<!--    <div class="track-list">-->
+<!--      <div *ngFor="let track of playlist.tracks_submission">-->
+<!--        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="track-list">-->
+<!--      <div *ngFor="let track of playlist.tracks">-->
+<!--        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</span>-->
 
 <span *ngIf="playlist && innerWidth < 900">
-  <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
-  <app-playlist-summary [playlist]="playlist"></app-playlist-summary>
+  <div class="playlist-header-container">
+    <app-playlist-header [playlist]="playlist"></app-playlist-header>
+  </div>
+  <div id="track-finder-header">
+    <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
+  </div>
   <div class="container playlist-show-tracks-list">
     <p-tabView class="content-center-content">
       <p-tabPanel class="panel-tracks" header="Submission">

@@ -13,7 +13,7 @@
 
 .user-image {
   margin: 0.6em;
-  width: 44.81px;
+  width: 35px;
 }
 
 .user-name {
@@ -36,4 +36,9 @@ a {
 #toolbar-logo {
   padding-right: 0.5em;
   border-right: 2px solid #ff0085;
+}
+
+#display-name {
+  font-size: 1.1em;
+  font-weight: bold;
 }

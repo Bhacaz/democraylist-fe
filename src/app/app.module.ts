@@ -30,6 +30,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PlaylistStatsComponent } from './playlists/playlist-stats/playlist-stats.component';
 import {TableModule} from 'primeng/table';
+import { PlaylistHeaderComponent } from './playlists/playlist-header/playlist-header.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {TableModule} from 'primeng/table';
     ExploreComponent,
     SubscriptionsComponent,
     LoadingComponent,
-    PlaylistStatsComponent
+    PlaylistStatsComponent,
+    PlaylistHeaderComponent
   ],
   imports: [
     HttpClientModule,
