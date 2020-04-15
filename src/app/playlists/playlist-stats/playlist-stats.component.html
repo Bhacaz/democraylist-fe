@@ -1,8 +1,8 @@
 <div id="stats-table">
-  <p-table [value]="stats" sortMode="single" sortField="submission_count" sortOrder="-1">
+  <p-table [value]="stats">
     <ng-template pTemplate="header">
       <tr>
-        <th>User</th>
+        <th style="width: 30%">User</th>
         <th>Track submit</th>
         <th>Received <i class="fa fa-arrow-up"></i></th>
         <th>Received <i class="fa fa-arrow-down"></i></th>
@@ -12,7 +12,10 @@
     </ng-template>
     <ng-template pTemplate="body" let-stat>
       <tr>
-        <td class="user-cell">{{stat.user.display_name}}</td>
+        <td class="user-cell content-center">
+          <img *ngIf="stat.user.images" class="stats-user-image round-image content-center-content" src="{{stat.user.images[0].url}}" height="30px">
+          <span class="content-center-content">{{stat.user.display_name}}</span>
+        </td>
         <td>{{stat.submission_count}}</td>
         <td>{{stat.submission_upvote_count}} ({{toInt(stat.submission_upvote_count/stat.submission_count * 100)}}%)</td>
         <td>{{stat.submission_downvote_count}} ({{toInt(stat.submission_downvote_count/stat.submission_count*100)}}%)</td>
