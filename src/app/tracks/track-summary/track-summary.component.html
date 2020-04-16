@@ -15,7 +15,7 @@
     <span class="icon vote-null arrow-up"
           [ngClass]="{'voted-up' : track.my_vote == 'up', 'arrow-hover' : track.my_vote != 'up'}"
           (click)="upVote()">
-      <i class="fa fa-arrow-up"></i>
+      <i class="fa fa-chevron-up"></i>
     </span>
 
       <span class="vote-count">{{track.vote_count}}</span>
@@ -23,7 +23,7 @@
       <span class="icon vote-null arrow-down"
             [ngClass]="{'voted-down' : track.my_vote == 'down', 'arrow-hover' : track.my_vote != 'down'}"
             (click)="downVote()">
-      <i class="fa fa-arrow-down"></i>
+      <i class="fa fa-chevron-down"></i>
     </span>
     </div>
   </div>
