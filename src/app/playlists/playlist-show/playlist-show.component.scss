@@ -4,15 +4,16 @@
   justify-content: space-around;
 }
 
+app-tabs {
+  width: 100%;
+}
 .track-list {
   width: 100%;
-  margin-left: 1em;
-  margin-right: 1em;
 }
 
 .playlist-show-tracks-list {
-  margin-left: -1.5em;
-  margin-right: -1.5em;
+  margin-left: -1em;
+  margin-right: -1em;
   padding-top: 1em;
 }
 

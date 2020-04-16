@@ -1,12 +1,11 @@
 
 .track-summary {
-  height: 88px;
-  padding: 0.5em;
+  height: 72px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  border: 1px solid;
-  border-radius: 10px;
-  min-width: 23em;
+  width: 100%;
 }
 
 .arrows {
@@ -69,6 +68,7 @@ span.icon {
   width: 1em;
   padding-right: 0.2em;
   padding-left: 0.4em;
+  font-size: 1.2em;
 }
 
 .added-by {
@@ -78,4 +78,15 @@ span.icon {
 .release-date {
   font-size: 0.8em;
   padding-top: 0.5em;
+}
+
+.track-name-container {
+  height: 1.5em;
+}
+
+.track-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 13em;
 }
