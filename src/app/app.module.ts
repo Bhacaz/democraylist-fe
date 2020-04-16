@@ -31,6 +31,8 @@ import { environment } from '../environments/environment';
 import { PlaylistStatsComponent } from './playlists/playlist-stats/playlist-stats.component';
 import {TableModule} from 'primeng/table';
 import { PlaylistHeaderComponent } from './playlists/playlist-header/playlist-header.component';
+import { TabsComponent } from './common/tabs/tabs/tabs.component';
+import { TabComponent } from './common/tabs/tab/tab.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { PlaylistHeaderComponent } from './playlists/playlist-header/playlist-he
     SubscriptionsComponent,
     LoadingComponent,
     PlaylistStatsComponent,
-    PlaylistHeaderComponent
+    PlaylistHeaderComponent,
+    TabsComponent,
+    TabComponent
   ],
   imports: [
     HttpClientModule,

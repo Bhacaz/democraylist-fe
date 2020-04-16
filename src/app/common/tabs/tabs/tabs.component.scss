@@ -1,0 +1,71 @@
+
+.nav-tabs {
+  padding-left: 0;
+  margin:0;
+  list-style:none;
+  line-height:1em;
+}
+
+.nav-tabs LI {
+  width: 7em;
+  text-align: center;
+}
+
+.nav-tabs A {
+  display:block;
+  text-decoration:none;
+  margin:0;
+  padding-top: 7px;
+  height: 2em;
+  //border: 1px solid white;
+  border-top: 1px solid #a6a6a6;
+  border-bottom: 1px solid #a6a6a6;
+  color: #333333;
+  background-color: white;
+}
+
+.nav-tabs A:hover,
+.nav-tabs A:active,
+.nav-tabs A.here:link,
+.nav-tabs A.here:visited {
+  background-color: #00ffa5;
+}
+
+.nav-tabs A .active {
+  background-color: #00ffa5;
+}
+
+.nav-tabs UL {
+  position:absolute;
+  left:0;
+  top:1.5em;
+  float:left;
+  width:100%;
+  margin:0;
+  padding:0.25em 0.25em 0.25em 1em;
+  list-style:none;
+}
+
+.nav-tabs UL LI {
+  float:left;
+  display:block;
+  margin-top:1px;
+}
+
+.content-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first-tab {
+   border-bottom-left-radius: 10px;
+   border-top-left-radius: 10px;
+   border-left: 1px solid #a6a6a6;
+ }
+
+.last-tab {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-right: 1px solid #a6a6a6;
+}

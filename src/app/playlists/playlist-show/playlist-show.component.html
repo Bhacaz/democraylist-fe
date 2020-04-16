@@ -1,19 +1,3 @@
-<!--<span *ngIf="playlist && innerWidth >= 900">-->
-<!--  <app-playlist-header [playlist]="playlist"></app-playlist-header>-->
-<!--  <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>-->
-<!--  <div class="container playlist-show-tracks-list">-->
-<!--    <div class="track-list">-->
-<!--      <div *ngFor="let track of playlist.tracks_submission">-->
-<!--        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="track-list">-->
-<!--      <div *ngFor="let track of playlist.tracks">-->
-<!--        <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</span>-->
 
 <span *ngIf="playlist && innerWidth < 900">
   <div class="playlist-header-container">
@@ -23,20 +7,22 @@
     <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
   </div>
   <div class="container playlist-show-tracks-list">
-    <p-tabView class="content-center-content">
-      <p-tabPanel class="panel-tracks" header="Submission">
-        <div class="track-list">
+
+  <app-tabs class="content-center-content">
+    <app-tab [tabTitle]="'Submissions'">
+     <div class="track-list">
           <div *ngFor="let track of playlist.tracks_submission">
             <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
           </div>
         </div>
-      </p-tabPanel>
-      <p-tabPanel header="Tracks">
+    </app-tab>
+    <app-tab [tabTitle]="'Tracks'">
         <div class="track-list">
           <div *ngFor="let track of playlist.tracks">
             <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
           </div>
-        </div>  </p-tabPanel>
-    </p-tabView>
+        </div>
+    </app-tab>
+  </app-tabs>
   </div>
 </span>
