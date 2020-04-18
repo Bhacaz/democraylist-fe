@@ -7,12 +7,6 @@
       <h3 class="content-center-content toolbar-title">Democraylist</h3>
     </a>
   </div>
-
-  <div *ngIf="user" class="user-name content-center">
-    <span class="content-center-content">
-      <p id="display-name">{{user.display_name}}</p>
-    </span>
-  </div>
   <div *ngIf="user" class="user-image content-center" >
     <img class="round-image content-center-content" src="{{user.images[0].url}}" height="35px">
   </div>
