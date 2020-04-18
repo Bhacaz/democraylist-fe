@@ -25,15 +25,8 @@
   background-color: white;
 }
 
-.nav-tabs A:hover,
-.nav-tabs A:active,
-.nav-tabs A.here:link,
-.nav-tabs A.here:visited {
-  background-color: #00ffa5;
-}
-
-.nav-tabs A .active {
-  background-color: #00ffa5;
+.active > a{
+  background-color: #00ffa5aa;
 }
 
 .nav-tabs UL {
