@@ -51,7 +51,6 @@ span.icon {
 .album-img {
   position: absolute;
   z-index: 1;
-  box-shadow: 0 0 5px 0px black;
 }
 
 .hover-img {
@@ -91,4 +90,6 @@ span.icon {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 1em;
+  padding-top: 0.2em;
 }
