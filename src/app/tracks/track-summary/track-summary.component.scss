@@ -64,6 +64,7 @@ span.icon {
 
 .track-description {
   flex: 1;
+  min-width: 0;
 }
 
 .menu-show-button {
@@ -90,5 +91,4 @@ span.icon {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 13em;
 }
