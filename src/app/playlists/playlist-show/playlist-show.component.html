@@ -23,6 +23,13 @@
           </div>
         </div>
     </app-tab>
+    <app-tab [tabTitle]="'Archived'">
+        <div class="track-list">
+          <div *ngFor="let track of playlist.tracks_archived">
+            <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
+          </div>
+        </div>
+    </app-tab>
   </app-tabs>
   </div>
 </span>
