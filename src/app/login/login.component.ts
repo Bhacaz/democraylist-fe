@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DemocraylistService} from '../democraylist/democraylist.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {LocalstorageService} from '../common/localstorage.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private democraylistService: DemocraylistService
+    private democraylistService: DemocraylistService,
+    private localstorageService: LocalstorageService
   ) { }
 
   ngOnInit(): void {
@@ -26,8 +28,8 @@ export class LoginComponent implements OnInit {
         if (code) {
           this.democraylistService.getSpotifyToken(code).subscribe(response => {
             this.user = response.user;
-            localStorage.setItem('access_token', response.access_token);
-            localStorage.setItem('user', JSON.stringify(response.user));
+            this.localstorageService.setItem('access_token', response.access_token);
+            this.localstorageService.setItem('user', JSON.stringify(response.user));
             this.router.navigate(['/']);
           });
         } else {

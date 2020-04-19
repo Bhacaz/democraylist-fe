@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {DemocraylistService} from '../democraylist/democraylist.service';
 import {SwPush} from '@angular/service-worker';
 import {environment} from '../../environments/environment';
+import {LocalstorageService} from '../common/localstorage.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private democraticPlaylist: DemocraylistService,
+    private localstorageService: LocalstorageService,
     private swPush: SwPush
   ) { }
 
@@ -48,8 +50,8 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToLogin() {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('user');
+    this.localstorageService.removeItem('access_token');
+    this.localstorageService.removeItem('user');
     this.router.navigate(['/login']);
   }
 

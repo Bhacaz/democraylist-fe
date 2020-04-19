@@ -104,7 +104,6 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   }
 
   toggleShowInfo = (event) =>  {
-    console.log(123);
     this.showInfo = true;
   }
 

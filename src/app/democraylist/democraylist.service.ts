@@ -43,6 +43,10 @@ export class DemocraylistService {
     return this.http.post(this.backendUrl + 'users/push_notif_preference', {preference: sub});
   }
 
+  logoutUser(): Observable<any> {
+    return this.http.post(this.backendUrl + 'auth/logout', {});
+  }
+
   // PLAYLIST
 
   getPlaylists(): Observable<any> {
