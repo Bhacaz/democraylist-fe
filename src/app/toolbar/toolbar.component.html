@@ -12,6 +12,6 @@
          src="{{user.images[0].url}}"
          height="35px"
          (click)="menu.toggle($event)">
-    <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+    <p-menu #menu [popup]="true" [model]="menuItems" appendTo="body"></p-menu>
   </div>
 </div>

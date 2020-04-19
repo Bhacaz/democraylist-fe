@@ -47,7 +47,7 @@
     </button>
   </div>
   <div>
-    <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+    <p-menu #menu [popup]="true" [model]="menuItems" appendTo="body"></p-menu>
     <i class="fa fa-ellipsis-v menu-show-button" (click)="menu.toggle($event)"></i>
   </div>
 </div>
