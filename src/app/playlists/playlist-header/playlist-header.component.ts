@@ -39,7 +39,6 @@ export class PlaylistHeaderComponent implements OnInit {
   }
 
   openStats = (event) => {
-    console.log('123');
     this.router.navigate(['/playlists', this.playlist.id, 'stats']);
   }
 }

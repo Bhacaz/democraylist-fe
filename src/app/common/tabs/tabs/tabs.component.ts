@@ -19,9 +19,6 @@ export class TabsComponent implements AfterContentInit {
   ngAfterContentInit() {
     // get all active tabs
     const activeTabs = this.tabs.filter((tab) => tab.active);
-
-    console.log(123);
-    console.log(activeTabs);
     // if there is no active tab set, activate the first
     if (activeTabs.length === 0) {
       this.selectTab(this.tabs.first);
@@ -29,7 +26,6 @@ export class TabsComponent implements AfterContentInit {
   }
 
   selectTab(tab: TabComponent) {
-    console.log(tab)
     // deactivate all tabs
     this.tabs.toArray().forEach(t => t.active = false);
 
