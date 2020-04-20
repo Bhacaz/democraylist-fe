@@ -22,6 +22,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   ) {
     this.route.params.subscribe(params => {
       this.playlistId = +params.id;
+      this.getPlaylist();
     });
 
     this.voteChangingSubscription = this.voteService.voteChanging().subscribe(playlistId => this.getPlaylist());
@@ -29,7 +30,6 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
-    this.getPlaylist();
   }
 
   ngOnDestroy() {

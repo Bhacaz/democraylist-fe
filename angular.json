@@ -23,7 +23,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/404.html",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/addon-service-worker.js"
             ],
             "styles": [
               "src/styles.scss",

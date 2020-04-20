@@ -67,7 +67,7 @@ import { TabComponent } from './common/tabs/tab/tab.component';
     ProgressSpinnerModule,
     DialogModule,
     TableModule,
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('./addon-service-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
