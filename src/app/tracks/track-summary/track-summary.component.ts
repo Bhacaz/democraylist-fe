@@ -3,6 +3,7 @@ import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {AudioService} from '../audio-player.service';
 import {MenuItem} from 'primeng/api';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-track-summary',
@@ -19,12 +20,22 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   audioPlayerSubscription;
   menuItems: MenuItem[];
   showInfo: boolean = false;
+  trackId: number;
 
   constructor(
     private democraylistService: DemocraylistService,
     private voteService: PlaylistChangeService,
-    private audioService: AudioService
-  ) { }
+    private audioService: AudioService,
+    private route: ActivatedRoute
+  ) {
+    this.route.queryParams
+      .subscribe(params => {
+        const trackId = params.track_id;
+        if (trackId) {
+          this.trackId = parseInt(trackId);
+        }
+      });
+  }
 
   ngOnInit(): void {
     this.currentlyPlaying = this.audioService.currentlyPlayingTrackId === this.track.id;
@@ -120,5 +131,9 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   showVotebutton(): boolean {
     return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
       this.playlist.subscribed;
+  }
+
+  focus(): boolean {
+    return this.track.id === this.trackId;
   }
 }

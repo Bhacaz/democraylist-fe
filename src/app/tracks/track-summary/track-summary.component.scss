@@ -8,6 +8,17 @@
   width: 100%;
 }
 
+@-webkit-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+.blink {
+  -webkit-animation: blinker 1s 3;
+  -moz-animation: blinker 1s 3;
+  animation: blinker 1s 3;
+}
+
 .arrows {
   margin-right: 0.5em;
   margin-left: 0.5em;

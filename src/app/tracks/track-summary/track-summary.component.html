@@ -1,5 +1,5 @@
 
-<div class="container track-summary">
+<div class="container track-summary" [ngClass]="{'blink' : focus()}">
   <div class="album-img-container" (mouseenter)="mouseEnterPlayButton()" (mouseleave)="mouseLeavePlayButton()">
     <i class="fa fa-play-circle-o play-button"
        (click)="playPreview()"
