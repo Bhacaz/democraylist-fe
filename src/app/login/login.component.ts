@@ -30,7 +30,13 @@ export class LoginComponent implements OnInit {
             this.user = response.user;
             this.localstorageService.setItem('access_token', response.access_token);
             this.localstorageService.setItem('user', JSON.stringify(response.user));
-            this.router.navigate(['/']);
+            const redirectUrl = sessionStorage.getItem('redirectUrl');
+            if (redirectUrl) {
+              sessionStorage.removeItem('redirectUrl');
+              this.router.navigateByUrl(redirectUrl);
+            } else {
+              this.router.navigate(['/']);
+            }
           });
         } else {
           this.isLoading = false;

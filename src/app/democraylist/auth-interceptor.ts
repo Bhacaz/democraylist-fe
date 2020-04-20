@@ -16,6 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
     // handle your auth error or rethrow
     if (err.status === 401 || err.status === 403) {
       localStorage.removeItem('access_token');
+      sessionStorage.setItem('redirectUrl', this.router.url);
       this.router.navigateByUrl(`/login`);
       return of(err.message);
     }
