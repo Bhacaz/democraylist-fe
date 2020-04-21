@@ -1,3 +1,4 @@
+<app-toolbar></app-toolbar>
 
 <span *ngIf="isLoading">
   <app-loading></app-loading>
@@ -6,21 +7,21 @@
 <div *ngIf="!isLoading" class="container column">
   <div>
     <h2>
-      <a routerLink="/playlists">My Playlists</a>
+      <a>My Playlists</a>
     </h2>
     <app-playlist-list></app-playlist-list>
   </div>
 
   <div>
     <h2>
-      <a routerLink="/subscriptions">Subscriptions</a>
+      <a>Subscriptions</a>
     </h2>
     <app-subscriptions></app-subscriptions>
   </div>
 
   <div>
     <h2>
-      <a routerLink="/explore">Explore</a>
+      <a>Explore</a>
     </h2>
     <app-explore></app-explore>
   </div>

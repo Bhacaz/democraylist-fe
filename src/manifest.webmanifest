@@ -1,7 +1,7 @@
 {
   "name": "Democraylist",
   "short_name": "Democraylist",
-  "theme_color": "#00ffa5",
+  "theme_color": "#4ab5a3",
   "background_color": "#ffffff",
   "display": "standalone",
   "scope": "./",

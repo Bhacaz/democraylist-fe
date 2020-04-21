@@ -17,23 +17,13 @@ app-tabs {
   padding-top: 1em;
 }
 
-::ng-deep .ui-tabview-panels {
-  padding: 0 !important;
-  border: none !important;
-  margin-right: 2.3em !important;
-}
-
-::ng-deep .ui-tabview-nav {
-  padding-left: 1em !important;
-}
-
 #track-finder-header {
-  margin-top: -3.5em;
+  margin-top: -2em;
 }
 
 .playlist-header-container {
   overflow: hidden;
-  height: 11em;
+  height: 10em;
   margin-right: -1em;
   margin-left: -1em;
 }

@@ -4,11 +4,11 @@
 
 #toolbar {
   height: 4em;
-  background-color: #00ffa5;
+  background-image: linear-gradient(#4ab5a3 20%, #6080c1 100%);
   margin-left: -1em;
   margin-right: -1em;
-  margin-top: -0.5em;
   padding-top: -1em;
+  color: white;
 }
 
 .user-image {
@@ -25,7 +25,7 @@
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 

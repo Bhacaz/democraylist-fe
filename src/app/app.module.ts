@@ -33,6 +33,7 @@ import {TableModule} from 'primeng/table';
 import { PlaylistHeaderComponent } from './playlists/playlist-header/playlist-header.component';
 import { TabsComponent } from './common/tabs/tabs/tabs.component';
 import { TabComponent } from './common/tabs/tab/tab.component';
+import { PlaylistToolbarComponent } from './playlists/playlist-toolbar/playlist-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { TabComponent } from './common/tabs/tab/tab.component';
     PlaylistStatsComponent,
     PlaylistHeaderComponent,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    PlaylistToolbarComponent
   ],
   imports: [
     HttpClientModule,

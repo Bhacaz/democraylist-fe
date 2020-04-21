@@ -3,8 +3,8 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "../node_modules/font-awesome/scss/font-awesome.scss";
 
 body {
-  margin-left: 1em;
-  margin-right: 1em;
+  padding: 0 1em 1em;
+  margin: 0;
 }
 
 .container {
@@ -46,5 +46,5 @@ body {
   border-radius: 50%;
 }
 
-//primary #00ffa5
+//primary #4ab5a3
 // secondary #ff0085

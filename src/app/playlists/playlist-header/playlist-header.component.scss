@@ -1,17 +1,17 @@
 #playlist-header-container {
-  height: 9em;
+  height: 7.5em;
   //background-color: #ff0085;
-  background: rgb(255,0,133);
-  background: linear-gradient(180deg, rgba(255,0,133,1) 45%, rgba(255,255,255,1) 100%);
-
+  //background: rgb(255,0,133);
+  //background: linear-gradient(180deg, rgba(255,0,133,1) 45%, rgba(255,255,255,1) 100%);
+  background-image: linear-gradient(#4ab5a3 0%, #6080c1 80%);
   //border-bottom-left-radius: 2em;
   //border-bottom-right-radius: 2em;
   //box-shadow: 0px 1px 14px 0px black;
-  padding: 1em 0.6em 1em 1em;
+  padding: 0.4em 0.6em 1em 1em;
 }
 
 .playlist-img {
-  box-shadow: 0 0 10px black;
+  box-shadow: -9px 9px 20px -5px black;
 }
 
 .playlist-info {
@@ -20,13 +20,13 @@
 }
 
 .playlist-creator {
-  padding-top: 0.5em;
-  font-size: 0.8em;
+  padding-top: 0.8em;
+  font-size: 0.6em;
 }
 
 .playlist-description {
   padding-top: 0.1em;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .dot-menu {
