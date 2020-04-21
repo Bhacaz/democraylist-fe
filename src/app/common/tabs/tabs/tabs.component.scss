@@ -18,16 +18,15 @@
   text-decoration:none;
   margin:0;
   padding-top: 4.4px;
-  height: 2em;
-  //border: 1px solid white;
-  border-top: 1px solid #a6a6a6;
-  border-bottom: 1px solid #a6a6a6;
-  color: #333333;
+  height: 2.5em;
+  border-bottom: 1px solid #6080c1aa;
+  color: #6080c1aa;
   background-color: white;
 }
 
 .active > a{
-  background-color: #4ab5a3aa;
+  color: #1b2226;
+  border-bottom: 1px solid #1b2226;
 }
 
 .nav-tabs UL {
@@ -51,16 +50,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.first-tab {
-   border-bottom-left-radius: 10px;
-   border-top-left-radius: 10px;
-   border-left: 1px solid #a6a6a6;
- }
-
-.last-tab {
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-  border-right: 1px solid #a6a6a6;
 }
