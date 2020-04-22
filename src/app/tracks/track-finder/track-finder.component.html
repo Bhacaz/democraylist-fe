@@ -6,7 +6,7 @@
          [(ngModel)]="query"
          name="query"
          placeholder="Search"
-         (input)="searchTrack()">
+         (ngModelChange)='queryChanged.next($event)'>
 
   <div *ngIf="searchResult">
     <div *ngFor="let track of searchResult">
