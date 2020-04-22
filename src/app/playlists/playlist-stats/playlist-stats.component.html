@@ -5,7 +5,12 @@
       <img class="content-center-content" src="/assets/icons/icon-512x512-white.png" height="24px">
   </span>
   </div>
-  <p-table [value]="stats">
+
+<span *ngIf="!stats">
+  <app-loading></app-loading>
+</span>
+
+  <p-table *ngIf="stats" [value]="stats">
     <ng-template pTemplate="header">
       <tr>
         <th style="width: 30%">User</th>

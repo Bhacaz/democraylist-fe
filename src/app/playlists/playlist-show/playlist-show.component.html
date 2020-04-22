@@ -1,16 +1,16 @@
+<div class="playlist-header-container">
+  <app-playlist-header [playlist]="playlist"></app-playlist-header>
+</div>
+<div id="track-finder-header">
+  <app-track-finder *ngIf="playlist && showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
+</div>
+
 <span *ngIf="!playlist">
   <app-loading></app-loading>
 </span>
 
 <span *ngIf="playlist">
-  <div class="playlist-header-container">
-    <app-playlist-header [playlist]="playlist"></app-playlist-header>
-  </div>
-  <div id="track-finder-header">
-    <app-track-finder *ngIf="showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>
-  </div>
   <div class="container playlist-show-tracks-list">
-
   <app-tabs class="content-center-content">
     <app-tab [tabTitle]="'Submissions'">
      <div class="track-list">
@@ -34,5 +34,5 @@
         </div>
     </app-tab>
   </app-tabs>
-  </div>
+</div>
 </span>

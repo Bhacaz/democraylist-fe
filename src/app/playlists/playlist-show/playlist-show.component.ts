@@ -14,6 +14,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   playlist: any;
   voteChangingSubscription;
   innerWidth: number;
+  load = true;
 
   constructor(
     private route: ActivatedRoute,
