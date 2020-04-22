@@ -1,13 +1,17 @@
 #playlist-header-container {
-  height: 7.5em;
+  height: 7.4em;
   //background-color: #ff0085;
   //background: rgb(255,0,133);
   //background: linear-gradient(180deg, rgba(255,0,133,1) 45%, rgba(255,255,255,1) 100%);
-  background-image: linear-gradient(#4ab5a3 0%, #6080c1 80%);
+  //background-image: linear-gradient(-225deg, #ff4e50 0%, #f9d423 100%);
   //border-bottom-left-radius: 2em;
   //border-bottom-right-radius: 2em;
   //box-shadow: 0px 1px 14px 0px black;
   padding: 0.4em 0.6em 1em 1em;
+}
+
+#header-background {
+  background-image: linear-gradient(#ff4e50 0%, #f9d423 100%);
 }
 
 .playlist-img {
@@ -29,17 +33,38 @@
   font-size: 0.8em;
 }
 
-.dot-menu {
-  color: white;
-  font-size: 1.5em;
-  width: 0.8em;
-  text-align: center;
-}
-
 #playlist-name {
   font-size: 1.3em;
 }
 
 ::ng-deep .ui-menu {
   text-align: left;
+}
+
+#toolbar {
+  justify-content: space-between;
+  height: 1.5em;
+  padding-right: 0.3em;
+  padding-left: 0.3em;
+  //background-color: #4ab5a3;
+  color: white;
+}
+
+#toolbar-icon{
+  width: 30px;
+}
+
+#icon-chevron {
+  font-size: 0.7em;
+}
+
+#toolbar-playlist-name {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.dot-menu {
+  width: 20px;
+  padding-left: 10px;
+  text-align: center;
 }

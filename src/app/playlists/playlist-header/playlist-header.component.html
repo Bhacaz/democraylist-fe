@@ -1,12 +1,26 @@
-<app-playlist-toolbar [playlist]="playlist"></app-playlist-toolbar>
-<div id="playlist-header-container" class="container">
-  <div>
-    <img class="playlist-img" [src]="playlist.image_url || './assets/images/playlistPlaceholder.png'" height="80px" width="80px">
+<!--<app-playlist-toolbar [playlist]="playlist"></app-playlist-toolbar>-->
+<div id="header-background">
+  <div id="toolbar" class="container content-center-content">
+    <span id="toolbar-icon" class="content-center content-center-content" routerLink="/">
+        <i class="fa fa-chevron-left content-center-content" id="icon-chevron"></i>
+        <img class="content-center-content" src="/assets/icons/icon-192x192-black.png" height="16px">
+    </span>
+    <div class="dot-menu content-center-content">
+      <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+      <i class="fa fa-ellipsis-v menu-show-button" (click)="menu.toggle($event)"></i>
+    </div>
   </div>
-  <div class="container column playlist-info spacer">
-    <p class="no-margin playlist-description">{{playlist.description}}</p>
-    <p class="no-margin playlist-creator">
-      {{playlist.created_by.display_name || playlist.created_by.spotify_id}} · {{playlist.tracks_count}} · {{playlist.tracks_submission_count}}
-      <br>
+
+  <div id="playlist-header-container" class="container">
+    <div>
+      <img class="playlist-img" [src]="playlist.image_url || './assets/images/playlistPlaceholder.png'" height="80px" width="80px">
+    </div>
+    <div class="container column playlist-info spacer">
+      <p id="toolbar-playlist-name" class="content-center-content">{{playlist.name}}</p>
+      <p class="no-margin playlist-description">{{playlist.description}}</p>
+      <p class="no-margin playlist-creator">
+        {{playlist.created_by.display_name || playlist.created_by.spotify_id}} · {{playlist.tracks_count}} · {{playlist.tracks_submission_count}}
+        <br>
+    </div>
   </div>
 </div>

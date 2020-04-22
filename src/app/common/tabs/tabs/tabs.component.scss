@@ -19,14 +19,15 @@
   margin:0;
   padding-top: 4.4px;
   height: 2.5em;
-  border-bottom: 1px solid #6080c1aa;
-  color: #6080c1aa;
+  border-bottom: 1px solid #ADADAD;
+  color: #ADADAD;
   background-color: white;
 }
 
 .active > a{
-  color: #1b2226;
-  border-bottom: 1px solid #1b2226;
+  font-weight: bold;
+  color: #FF4E50;
+  border-bottom: 1.5px solid #FF4E50;
 }
 
 .nav-tabs UL {
