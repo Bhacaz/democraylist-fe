@@ -39,7 +39,7 @@
 }
 
 .voted-down {
-  color: orangered;
+  color: #FF4E50;
 }
 
 span.icon {
@@ -75,6 +75,7 @@ span.icon {
 .track-description {
   flex: 1;
   min-width: 0;
+  justify-content: space-between;
 }
 
 .menu-show-button {
@@ -85,7 +86,9 @@ span.icon {
 }
 
 .added-by {
-  font-size: 0.8em;
+  font-size: 0.6em;
+  color: #9C9C9C;
+  margin: 0;
 }
 
 .release-date {
@@ -103,4 +106,15 @@ span.icon {
   white-space: nowrap;
   font-size: 1em;
   padding-top: 0.2em;
+  color: #FF4E50;
+}
+
+.track-artists {
+  color: #9C9C9C;
+  font-size: 0.8em;
+  margin-top: 0.2em;
+}
+
+.menu-container {
+  height: 20px;
 }
