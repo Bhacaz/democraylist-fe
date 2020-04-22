@@ -24,3 +24,21 @@ td {
 .stats-user-image {
   padding-right: 0.4em;
 }
+
+#toolbar {
+  justify-content: space-between;
+  height: 1.5em;
+  padding-right: 0.3em;
+  padding-left: 0.3em;
+  //background-color: #4ab5a3;
+  color: white;
+  background-color: #ff4e50;
+}
+
+#toolbar-icon{
+  width: 30px;
+}
+
+#icon-chevron {
+  font-size: 0.7em;
+}
