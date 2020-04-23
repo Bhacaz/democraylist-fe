@@ -103,4 +103,10 @@ export class DemocraylistService {
   downVotePatch(trackId: number): Observable<any> {
     return this.http.patch(this.backendUrl + 'tracks/' + trackId + '/down_vote', {});
   }
+
+  // PLAYER
+
+  playQueue(playlistId: number, queue: string): Observable<any> {
+    return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/play', {queue});
+  }
 }

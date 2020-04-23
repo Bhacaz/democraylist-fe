@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-playlist-show',
@@ -14,7 +15,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   playlist: any;
   voteChangingSubscription;
   innerWidth: number;
-  load = true;
+  playMenuItem: MenuItem[];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,12 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     });
 
     this.voteChangingSubscription = this.voteService.voteChanging().subscribe(playlistId => this.getPlaylist());
+
+    this.playMenuItem = [
+      {label: 'Tracks', icon: 'fa fa-music', command: this.playTracks},
+      {label: 'Submission', icon: 'fa fa-headphones', command: this.playSubmissions},
+      {label: 'Unvoted', icon: 'fa fa-question-circle', command: this.playUnvoted}
+      ];
   }
 
   ngOnInit(): void {
@@ -51,5 +58,20 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   showTrackFinder(): boolean {
     return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
       this.playlist.subscribed;
+  }
+
+  playTracks = (event) => {
+    console.log(123);
+    this.democraylistService.playQueue(this.playlistId, 'tracks').subscribe();
+  }
+
+  playSubmissions = (event) => {
+    console.log(123);
+    this.democraylistService.playQueue(this.playlistId, 'submissions').subscribe();
+  }
+
+  playUnvoted = (event) => {
+    console.log(123);
+    this.democraylistService.playQueue(this.playlistId, 'unvoted').subscribe();
   }
 }
