@@ -61,17 +61,14 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   }
 
   playTracks = (event) => {
-    console.log(123);
     this.democraylistService.playQueue(this.playlistId, 'tracks').subscribe();
   }
 
   playSubmissions = (event) => {
-    console.log(123);
     this.democraylistService.playQueue(this.playlistId, 'submissions').subscribe();
   }
 
   playUnvoted = (event) => {
-    console.log(123);
     this.democraylistService.playQueue(this.playlistId, 'unvoted').subscribe();
   }
 }
