@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {MenuItem} from 'primeng/api';
+import {Menu} from 'primeng/menu';
 
 @Component({
   selector: 'app-playlist-show',
@@ -30,10 +31,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     this.voteChangingSubscription = this.voteService.voteChanging().subscribe(playlistId => this.getPlaylist());
 
     this.playMenuItem = [
-      {label: 'Tracks', icon: 'fa fa-music', command: this.playTracks},
-      {label: 'Submission', icon: 'fa fa-headphones', command: this.playSubmissions},
-      {label: 'Unvoted', icon: 'fa fa-question-circle', command: this.playUnvoted}
-      ];
+      {label: 'Loading...', icon: 'fa fa-spinner'}];
   }
 
   ngOnInit(): void {
@@ -70,5 +68,31 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
   playUnvoted = (event) => {
     this.democraylistService.playQueue(this.playlistId, 'unvoted').subscribe();
+  }
+
+  playButtonClicked(menu: Menu, event) {
+    menu.toggle(event);
+
+    let noDevice = true;
+    let text = 'No active device';
+    this.democraylistService.getUserPlayerDevices()
+      .subscribe(
+      data => {
+        if (data.length > 0) {
+          noDevice = false;
+          text = 'Play on ' + data[0].name;
+        }
+
+        this.playMenuItem = [{
+          label: text,
+            items: [
+              {label: 'Tracks', icon: 'fa fa-music', command: this.playTracks, disabled: noDevice},
+              {label: 'Submission', icon: 'fa fa-headphones', command: this.playSubmissions, disabled: noDevice},
+              {label: 'Unvoted', icon: 'fa fa-question-circle', command: this.playUnvoted, disabled: noDevice}
+            ]
+          }
+        ];
+      }
+    );
   }
 }

@@ -10,7 +10,7 @@
             id="play-button"
             class="ui-button-success"
             icon="fa fa-play"
-            (click)="menu.toggle($event)"></button>
+            (click)="playButtonClicked(menu, $event)"></button>
     <p-menu #menu [popup]="true" [model]="playMenuItem" appendTo="body"></p-menu>
   </div>
 </div>

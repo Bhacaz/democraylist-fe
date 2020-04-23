@@ -109,4 +109,8 @@ export class DemocraylistService {
   playQueue(playlistId: number, queue: string): Observable<any> {
     return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/play', {queue});
   }
+
+  getUserPlayerDevices(): Observable<any> {
+    return this.http.get(this.backendUrl + 'users/player/devices');
+  }
 }
