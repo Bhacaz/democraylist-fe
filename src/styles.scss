@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+  font-family: 'Ruboto', sans-serif;
+}
 
 body {
   padding: 0 1em 1em;
