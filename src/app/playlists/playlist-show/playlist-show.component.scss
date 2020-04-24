@@ -17,10 +17,6 @@ app-tabs {
   padding-top: 1em;
 }
 
-#bottom-header {
-  margin-top: -2.2em;
-}
-
 .playlist-header-container {
   overflow: hidden;
   height: 10em;
@@ -29,11 +25,17 @@ app-tabs {
 }
 
 #track-finder-header {
+  margin-top: -2.7em;
   flex: 1;
 }
 
+#track-finder-header ::ng-deep input {
+    margin-right: 4.8em;
+}
+
 #play-button-container {
-  margin-top: auto;
+  text-align: right;
+  margin-top: -1.7em;
 }
 
 #play-button {
