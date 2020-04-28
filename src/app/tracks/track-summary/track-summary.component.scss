@@ -22,7 +22,6 @@
 .arrows {
   margin-right: 0.5em;
   margin-left: 0.5em;
-  width: 22px;
 }
 
 .vote-count {
@@ -35,11 +34,11 @@
 }
 
 .voted-up {
-  color: limegreen;
+  color: #00B1AF;
 }
 
 .voted-down {
-  color: #FF4E50;
+  color: #f9d423;
 }
 
 span.icon {
@@ -117,4 +116,12 @@ span.icon {
 
 .menu-container {
   height: 20px;
+}
+
+.green-button {
+  border-radius: 50%;
+  height: 2.7em;
+  width: 2.7em !important;
+  background: linear-gradient(128deg, #00B1AF 0%, rgba(249,212,35,1) 100%);
+  border: 0 !important;
 }

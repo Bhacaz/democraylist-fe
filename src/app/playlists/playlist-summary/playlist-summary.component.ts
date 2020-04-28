@@ -23,6 +23,14 @@ export class PlaylistSummaryComponent implements OnInit {
       {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify},
       {label: 'Statistic', icon: 'fa fa-bar-chart', command: this.openStats}
     ];
+
+    if (!this.myPlaylist()) {
+      if (this.playlist.subscribed) {
+        this.menuItems.push({label: 'Unsubscribed', icon: 'fa fa-heart', command: this.unsubscribed});
+      } else {
+        this.menuItems.push({label: 'Subscribed', icon: 'fa fa-heart-o', command: this.subscribed});
+      }
+    }
   }
 
   showPlaylist() {

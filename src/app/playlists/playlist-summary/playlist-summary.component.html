@@ -2,31 +2,17 @@
 <div class="container playlist-summary">
   <div class="container spacer" (click)="showPlaylist()">
     <div>
-      <img class="playlist-img" [src]="playlist.image_url || './assets/images/playlistPlaceholder.png'" height="100%" width="48px">
+      <img class="playlist-img" [src]="playlist.image_url || './assets/images/playlistPlaceholder.png'" height="48px" width="48px">
     </div>
     <div class="container column playlist-info">
-        <h3 class="no-margin">{{playlist.name}}</h3>
-        <p class="no-margin">{{playlist.description}}</p>
+        <h3 class="no-margin playlist-name">{{playlist.name}}</h3>
+        <p class="no-margin playlist-description">{{playlist.description}}</p>
     </div>
   </div>
-  <div>
+  <div class="playlist-data">
     <p class="no-margin">{{playlist.created_by.display_name || playlist.created_by.spotify_id}}<br>
-      {{playlist.up_vote_count}} <i class="fa fa-arrow-up up-vote-arrow"></i> {{playlist.tracks_count}} | {{playlist.tracks_submission_count}}
+      {{playlist.tracks_count}}  <i class="fa fa-arrow-up up-vote-arrow"></i> {{playlist.up_vote_count}}
     </p>
-  </div>
-  <div class="content-center" *ngIf="!myPlaylist()">
-    <button
-      pButton
-      *ngIf="!playlist.subscribed"
-      class="ui-button-success ui-button-rounded subscribed-button content-center-content"
-      icon="fa fa-heart-o"
-      (click)="subscribed()"></button>
-    <button
-      pButton
-      *ngIf="playlist.subscribed"
-      class="ui-button-success ui-button-rounded subscribed-button content-center-content"
-      icon="fa fa-heart"
-      (click)="unsubscribed()"></button>
   </div>
   <div class="dot-menu">
     <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>

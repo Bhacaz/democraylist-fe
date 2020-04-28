@@ -5,12 +5,13 @@
 </span>
 
 <div *ngIf="!isLoading" class="container column">
-  <div>
-    <h2>
-      <a>My Playlists</a>
-    </h2>
-    <app-playlist-list></app-playlist-list>
+  <div class="container my-playlist-container content-center">
+    <h2 id="my-playlist-title"><a>My Playlists</a></h2>
+    <a class="content-center-content" routerLink="/playlists/new">
+      <span class="add-playlist-button"><i class="fa fa-plus"></i></span>
+    </a>
   </div>
+  <app-playlist-list></app-playlist-list>
 
   <div>
     <h2>
