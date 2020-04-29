@@ -34,6 +34,7 @@ import { PlaylistHeaderComponent } from './playlists/playlist-header/playlist-he
 import { TabsComponent } from './common/tabs/tabs/tabs.component';
 import { TabComponent } from './common/tabs/tab/tab.component';
 import { SharedComponent } from './tracks/shared/shared.component';
+import { PlaylistComponent } from './tracks/shared/playlist/playlist.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { SharedComponent } from './tracks/shared/shared.component';
     PlaylistHeaderComponent,
     TabsComponent,
     TabComponent,
-    SharedComponent
+    SharedComponent,
+    PlaylistComponent
   ],
   imports: [
     HttpClientModule,

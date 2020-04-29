@@ -69,6 +69,11 @@ export class DemocraylistService {
     return this.http.get(this.backendUrl + 'playlists/subscriptions');
   }
 
+  getAccessiblePlaylists(trackId): Observable<any> {
+    const params = new HttpParams().set('track_id', trackId);
+    return this.http.get(this.backendUrl + 'playlists/accessible', {params});
+  }
+
   subscripbedToPlaylist(playlistId: number): Observable<any> {
     return this.http.post(this.backendUrl + 'playlists/' + playlistId + '/subscribed', {});
   }
@@ -85,6 +90,11 @@ export class DemocraylistService {
 
   searchTracks(query: string): Observable<any> {
     const params = new HttpParams().set('q', query);
+    return this.http.get(this.backendUrl + 'tracks/search', {params});
+  }
+
+  searchByTrackId(trackId: string): Observable<any> {
+    const params = new HttpParams().set('track_id', trackId);
     return this.http.get(this.backendUrl + 'tracks/search', {params});
   }
 
