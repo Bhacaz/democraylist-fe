@@ -15,7 +15,9 @@
     </p>
   </div>
   <div class="dot-menu">
-    <p-menu #menu [popup]="true" [model]="menuItems" appendTo="body"></p-menu>
-    <i class="fa fa-ellipsis-v menu-show-button" (click)="menu.toggle($event)"></i>
+    <i class="fa fa-ellipsis-v menu-show-button" (click)="sheetComponent.toggle()"></i>
+    <app-bottom-sheet #sheetComponent [title]="playlist.name">
+        <p-menu [model]="menuItems" appendTo="body"></p-menu>
+    </app-bottom-sheet>
   </div>
 </div>

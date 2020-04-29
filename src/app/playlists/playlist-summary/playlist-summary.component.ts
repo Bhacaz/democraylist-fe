@@ -37,14 +37,14 @@ export class PlaylistSummaryComponent implements OnInit {
     this.router.navigate(['/playlists', this.playlist.id]);
   }
 
-  subscribed() {
+  subscribed = (event) => {
     this.democraylistService.subscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = true;
       });
   }
 
-  unsubscribed() {
+  unsubscribed = (event) => {
     this.democraylistService.unsubscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = false;

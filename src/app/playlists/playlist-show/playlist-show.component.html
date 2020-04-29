@@ -8,8 +8,10 @@
             id="play-button"
             class="ui-button-success"
             icon="fa fa-play"
-            (click)="playButtonClicked(menu, $event)"></button>
-    <p-menu #menu [popup]="true" [model]="playMenuItem" appendTo="body"></p-menu>
+            (click)="playButtonClicked(sheetComponent)"></button>
+    <app-bottom-sheet #sheetComponent [title]="playOnTitle">
+      <p-menu [model]="playMenuItem" appendTo="body"></p-menu>
+    </app-bottom-sheet>
   </div>
   <div id="track-finder-header" class="content-center-content">
     <app-track-finder *ngIf="playlist && showTrackFinder()" (trackSelected)='addTrack($event)'></app-track-finder>

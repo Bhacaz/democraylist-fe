@@ -17,6 +17,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   voteChangingSubscription;
   innerWidth: number;
   playMenuItem: MenuItem[];
+  playOnTitle: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -70,8 +71,8 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     this.democraylistService.playQueue(this.playlistId, 'unvoted').subscribe();
   }
 
-  playButtonClicked(menu: Menu, event) {
-    menu.toggle(event);
+  playButtonClicked(menu: any) {
+    menu.toggle();
 
     let noDevice = true;
     let text = 'No active device';
@@ -80,17 +81,13 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
       data => {
         if (data.length > 0) {
           noDevice = false;
-          text = 'Play on ' + data[0].name;
+          this.playOnTitle = 'Play on ' + data[0].name;
         }
 
-        this.playMenuItem = [{
-          label: text,
-            items: [
-              {label: 'Tracks', icon: 'fa fa-music', command: this.playTracks, disabled: noDevice},
-              {label: 'Submission', icon: 'fa fa-headphones', command: this.playSubmissions, disabled: noDevice},
-              {label: 'Unvoted', icon: 'fa fa-question-circle', command: this.playUnvoted, disabled: noDevice}
-            ]
-          }
+        this.playMenuItem = [
+          {label: 'Tracks', icon: 'fa fa-music', command: this.playTracks, disabled: noDevice},
+          {label: 'Submission', icon: 'fa fa-headphones', command: this.playSubmissions, disabled: noDevice},
+          {label: 'Unvoted', icon: 'fa fa-question-circle', command: this.playUnvoted, disabled: noDevice}
         ];
       }
     );
