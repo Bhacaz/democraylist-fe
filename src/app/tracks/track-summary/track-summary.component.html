@@ -43,6 +43,7 @@
     <button pButton
             class="ui-button-success green-button content-center-content"
             icon="fa fa-plus"
+            [disabled]="track.disableAddButton"
             (click)="trackChangeTrigger()">
     </button>
   </div>

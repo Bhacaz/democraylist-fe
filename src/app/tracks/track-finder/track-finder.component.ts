@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {Subject, Subscription} from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -14,6 +14,7 @@ export class TrackFinderComponent implements OnInit, OnDestroy {
   query: string = '';
   queryChanged: Subject<string> = new Subject<string>();
   private queryChangedSubscription: Subscription;
+  @Input() playlist;
 
   @Output() trackSelected = new EventEmitter();
 
@@ -39,6 +40,7 @@ export class TrackFinderComponent implements OnInit, OnDestroy {
       this.democraylistService.searchTracks(this.query)
         .subscribe(data => {
           this.searchResult = data;
+          this.searchResult.forEach(result => result.disableAddButton = this.disabledButton(result.id));
         });
     } else {
       this.searchResult = null;
@@ -53,5 +55,14 @@ export class TrackFinderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.queryChangedSubscription.unsubscribe();
+  }
+
+  disabledButton(spotifyId: string): boolean {
+    const spotifyIds = [];
+    this.playlist.tracks.map(track => spotifyIds.push(track.spotify_id));
+    this.playlist.tracks_submission.map(track => spotifyIds.push(track.spotify_id));
+    this.playlist.tracks_archived.map(track => spotifyIds.push(track.spotify_id));
+    console.log(spotifyIds);
+    return spotifyIds.includes(spotifyId);
   }
 }
