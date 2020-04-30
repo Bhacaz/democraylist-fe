@@ -10,7 +10,7 @@
             icon="fa fa-play"
             (click)="playButtonClicked(sheetComponent)"></button>
     <app-bottom-sheet #sheetComponent [title]="playOnTitle">
-      <p-menu [model]="playMenuItem"></p-menu>
+      <p-menu [model]="playMenuItem" appendTo="body"></p-menu>
     </app-bottom-sheet>
   </div>
   <div id="track-finder-header" class="content-center-content">
