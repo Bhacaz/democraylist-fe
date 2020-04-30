@@ -13,8 +13,8 @@ export class DemocraylistService {
   constructor(
     private http: HttpClient
   ) {
-    // Every 45 minutes
-    interval(1000 * 60 * 45).subscribe(x => {
+    // Every 25 minutes
+    interval(1000 * 60 * 25).subscribe(x => {
       this.getRefreshAcessToken().subscribe(res => {
         localStorage.setItem('access_token', res.access_token);
       });
