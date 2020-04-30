@@ -75,7 +75,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     menu.toggle();
 
     let noDevice = true;
-    let text = 'No active device';
+    this.playOnTitle = 'No active device';
     this.democraylistService.getUserPlayerDevices()
       .subscribe(
       data => {

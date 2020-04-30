@@ -37,7 +37,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.currentlyPlaying = this.audioService.currentlyPlayingTrackId === this.track.id;
     this.showPlayButton = this.currentlyPlaying;
 
