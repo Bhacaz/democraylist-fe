@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Playlist} from '../../models/playlist';
 
 @Component({
@@ -9,21 +9,49 @@ import {Playlist} from '../../models/playlist';
   styleUrls: ['./playlists-new.component.scss']
 })
 export class PlaylistsNewComponent implements OnInit {
+  playlistId: number;
+  playlist = {
+    name: '',
+    description: '',
+    song_size: 50
+  };
 
-  name: string;
-  description: string;
-  song_size: number;
-
-  constructor(private democraticPlaylist: DemocraylistService,
-              private router: Router) { }
+  constructor(private democraylistService: DemocraylistService,
+              private router: Router,
+              private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.playlistId = +params.id;
+      if (this.playlistId) {
+        this.democraylistService.getPlaylist(this.playlistId).subscribe(data => {
+          this.playlist = data;
+        });
+      }
+    });
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    this.democraticPlaylist.newPlaylist({name: this.name, description: this.description, song_size: this.song_size}).subscribe(data => {
-      this.router.navigate(['/playlists']);
-    });
+    if (this.playlistId) {
+      this.democraylistService.updatePlaylist(this.playlist).subscribe(data => {
+        this.redirectToPlaylist();
+      });
+    } else {
+      this.democraylistService.newPlaylist({
+        name: this.playlist.name,
+        description: this.playlist.description,
+        song_size: this.playlist.song_size
+      }).subscribe(data => {
+        this.playlistId = data.id;
+        this.redirectToPlaylist();
+      });
+    }
+  }
+
+  redirectToPlaylist() {
+    this.router.navigate(['/playlists', this.playlistId]);
+
   }
 
 }

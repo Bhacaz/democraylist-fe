@@ -57,6 +57,10 @@ export class DemocraylistService {
     return this.http.post(this.backendUrl + 'playlists/create', { playlist });
   }
 
+  updatePlaylist(playlist: any): Observable<any> {
+    return this.http.put(this.backendUrl + 'playlists/' + playlist.id, { playlist });
+  }
+
   getPlaylist(id: number): Observable<any> {
     return this.http.get(this.backendUrl + 'playlists/' + id);
   }

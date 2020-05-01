@@ -5,7 +5,7 @@
         <img class="content-center-content" src="/assets/icons/icon-512x512-white.png" height="20px">
     </span>
     <div class="dot-menu content-center-content">
-      <i class="fa fa-ellipsis-v menu-show-button" (click)="sheetComponent.toggle()"></i>
+      <i class="fa fa-ellipsis-v menu-show-button" (click)="showMenu(sheetComponent)"></i>
       <app-bottom-sheet #sheetComponent [title]="playlist?.name">
         <p-menu [model]="menuItems" appendTo="body"></p-menu>
       </app-bottom-sheet>

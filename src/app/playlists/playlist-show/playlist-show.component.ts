@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {MenuItem} from 'primeng/api';
-import {Menu} from 'primeng/menu';
 
 @Component({
   selector: 'app-playlist-show',

@@ -13,6 +13,7 @@ export const appRoutes: Routes = [
   { path: 'auth/spotify/callback', component: LoginComponent },
   { path: 'playlists/new', component: PlaylistsNewComponent },
   { path: 'playlists/:id', component: PlaylistShowComponent },
+  { path: 'playlists/:id/edit', component: PlaylistsNewComponent },
   { path: 'playlists/:id/stats', component: PlaylistStatsComponent },
   {
     path: '**',
