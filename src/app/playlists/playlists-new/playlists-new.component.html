@@ -1,4 +1,5 @@
 
+<app-back-toolbar [redirectPath]="playlistId ? '/playlists/' + playlistId : '/'"></app-back-toolbar>
 <div class="container">
   <form id="playlist-form" (ngSubmit)="onSubmit()" #playlistForm="ngForm">
     <div class="form-group">

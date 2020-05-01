@@ -1,3 +1,12 @@
+<app-back-toolbar [redirectPath]="'/'">
+  <div class="dot-menu content-center-content">
+    <i class="fa fa-ellipsis-v menu-show-button" (click)="showMenu(sheetComponent)"></i>
+    <app-bottom-sheet #sheetComponent [title]="playlist?.name">
+      <p-menu [model]="menuItems" appendTo="body"></p-menu>
+    </app-bottom-sheet>
+  </div>
+</app-back-toolbar>
+
 <div class="playlist-header-container">
   <app-playlist-header [playlist]="playlist"></app-playlist-header>
 </div>

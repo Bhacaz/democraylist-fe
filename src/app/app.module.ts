@@ -36,6 +36,7 @@ import { TabComponent } from './common/tabs/tab/tab.component';
 import { SharedComponent } from './tracks/shared/shared.component';
 import { PlaylistComponent } from './tracks/shared/playlist/playlist.component';
 import { BottomSheetComponent } from './common/bottom-sheet/bottom-sheet.component';
+import { BackToolbarComponent } from './common/back-toolbar/back-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { BottomSheetComponent } from './common/bottom-sheet/bottom-sheet.compone
     TabComponent,
     SharedComponent,
     PlaylistComponent,
-    BottomSheetComponent
+    BottomSheetComponent,
+    BackToolbarComponent
   ],
   imports: [
     HttpClientModule,
