@@ -136,4 +136,8 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   focus(): boolean {
     return this.track.id === this.trackId;
   }
+
+  artistiNames(): string {
+    return this.track.artists.map(artist => artist.name).join(', ');
+  }
 }
