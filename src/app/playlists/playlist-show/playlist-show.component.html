@@ -17,8 +17,8 @@
             id="play-button"
             class="ui-button-success"
             icon="fa fa-play"
-            (click)="playButtonClicked(sheetComponent)"></button>
-    <app-bottom-sheet #sheetComponent [title]="playOnTitle">
+            (click)="playButtonClicked(playSheetComponent)"></button>
+    <app-bottom-sheet #playSheetComponent [title]="playOnTitle">
       <p-menu [model]="playMenuItem" appendTo="body"></p-menu>
     </app-bottom-sheet>
   </div>
