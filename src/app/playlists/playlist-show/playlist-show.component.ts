@@ -50,16 +50,6 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
       .subscribe(data => this.playlist = data);
   }
 
-  addTrack(trackId: string) {
-    this.democraylistService.addTrackToPlaylist(this.playlistId, trackId)
-      .subscribe(data => this.playlist = data);
-  }
-
-  showTrackFinder(): boolean {
-    return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
-      this.playlist.subscribed;
-  }
-
   playTracks = (event) => {
     this.democraylistService.playQueue(this.playlistId, 'tracks').subscribe();
   }
@@ -115,6 +105,10 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
   redirectToEdit = (evnet) => {
     this.router.navigate(['/playlists', this.playlist.id, 'edit']);
+  }
+
+  redirectToAddTrack() {
+    this.router.navigate(['playlists', this.playlistId, 'add-track']);
   }
 
   owner(): boolean {

@@ -1,10 +1,14 @@
 #playlist-header-container {
-  height: 7.8em;
   padding: 0.5em 0.6em 1em 1em;
+  overflow: hidden;
+
 }
 
 #header-background {
+  height: 7.8em;
   background-image: linear-gradient(#ff4e50 0%, #f9d423 100%);
+  margin-right: -1em;
+  margin-left: -1em;
 }
 
 .playlist-img {

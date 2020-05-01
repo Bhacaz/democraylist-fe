@@ -12,18 +12,19 @@
 </div>
 
 <div id="sub-header-container">
-  <div id="play-button-container">
+  <div class="header-button-container">
     <button pButton
-            id="play-button"
-            class="ui-button-success"
+            class="ui-button-success header-button"
+            icon="fa fa-plus"
+            (click)="redirectToAddTrack()"></button>
+
+    <button pButton
+            class="ui-button-success header-button"
             icon="fa fa-play"
             (click)="playButtonClicked(playSheetComponent)"></button>
     <app-bottom-sheet #playSheetComponent [title]="playOnTitle">
       <p-menu [model]="playMenuItem" appendTo="body"></p-menu>
     </app-bottom-sheet>
-  </div>
-  <div id="track-finder-header" class="content-center-content">
-    <app-track-finder *ngIf="playlist && showTrackFinder()" (trackSelected)='addTrack($event)' [playlist]="playlist"></app-track-finder>
   </div>
 </div>
 
@@ -32,29 +33,29 @@
 </span>
 
 <span *ngIf="playlist">
-  <div class="container playlist-show-tracks-list">
-  <app-tabs class="content-center-content">
-    <app-tab [tabTitle]="'Submissions'">
-     <div class="track-list">
-          <div *ngFor="let track of playlist.tracks_submission">
-            <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
+  <div class="container tracks-tabs">
+    <app-tabs class="content-center-content">
+      <app-tab [tabTitle]="'Submissions'">
+       <div class="track-list">
+            <div *ngFor="let track of playlist.tracks_submission">
+              <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
+            </div>
           </div>
-        </div>
-    </app-tab>
-    <app-tab [tabTitle]="'Tracks'">
-        <div class="track-list">
-          <div *ngFor="let track of playlist.tracks">
-            <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
+      </app-tab>
+      <app-tab [tabTitle]="'Tracks'">
+          <div class="track-list">
+            <div *ngFor="let track of playlist.tracks">
+              <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
+            </div>
           </div>
-        </div>
-    </app-tab>
-    <app-tab [tabTitle]="'Archived'">
-        <div class="track-list">
-          <div *ngFor="let track of playlist.tracks_archived">
-            <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
+      </app-tab>
+      <app-tab [tabTitle]="'Archived'">
+          <div class="track-list">
+            <div *ngFor="let track of playlist.tracks_archived">
+              <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
+            </div>
           </div>
-        </div>
-    </app-tab>
-  </app-tabs>
-</div>
+      </app-tab>
+    </app-tabs>
+  </div>
 </span>

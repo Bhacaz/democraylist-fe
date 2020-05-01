@@ -1,0 +1,44 @@
+import {Component, Input, OnInit} from '@angular/core';
+import {DemocraylistService} from '../../democraylist/democraylist.service';
+import {ActivatedRoute, Router} from '@angular/router';
+
+@Component({
+  selector: 'app-playslit-add-track',
+  templateUrl: './playslit-add-track.component.html',
+  styleUrls: ['./playslit-add-track.component.scss']
+})
+export class PlayslitAddTrackComponent implements OnInit {
+
+  playlist;
+  playlistId;
+
+  constructor(private democraylistService: DemocraylistService,
+              private route: ActivatedRoute,
+              private router: Router) {
+    this.route.params.subscribe(params => {
+      this.playlistId = +params.id;
+      if (this.playlistId) {
+        this.democraylistService.getPlaylist(this.playlistId).subscribe(data => {
+          this.playlist = data;
+        });
+      }
+    });
+  }
+
+  ngOnInit(): void {
+  }
+
+  addTrack(trackId: string) {
+    this.democraylistService.addTrackToPlaylist(this.playlistId, trackId)
+      .subscribe(data => {
+        this.playlist = data;
+        this.router.navigate(['playlists', this.playlistId]);
+      });
+  }
+
+  showTrackFinder(): boolean {
+    return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
+      this.playlist.subscribed;
+  }
+
+}

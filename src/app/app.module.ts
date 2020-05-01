@@ -37,6 +37,7 @@ import { SharedComponent } from './tracks/shared/shared.component';
 import { PlaylistComponent } from './tracks/shared/playlist/playlist.component';
 import { BottomSheetComponent } from './common/bottom-sheet/bottom-sheet.component';
 import { BackToolbarComponent } from './common/back-toolbar/back-toolbar.component';
+import { PlayslitAddTrackComponent } from './playlists/playslit-add-track/playslit-add-track.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { BackToolbarComponent } from './common/back-toolbar/back-toolbar.compone
     SharedComponent,
     PlaylistComponent,
     BottomSheetComponent,
-    BackToolbarComponent
+    BackToolbarComponent,
+    PlayslitAddTrackComponent
   ],
   imports: [
     HttpClientModule,

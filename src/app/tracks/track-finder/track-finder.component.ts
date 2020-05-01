@@ -14,6 +14,7 @@ export class TrackFinderComponent implements OnInit, OnDestroy {
   query: string = '';
   queryChanged: Subject<string> = new Subject<string>();
   private queryChangedSubscription: Subscription;
+  trackIdsInPlaylist = [];
   @Input() playlist;
 
   @Output() trackSelected = new EventEmitter();
@@ -33,6 +34,9 @@ export class TrackFinderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.playlist.tracks.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+    this.playlist.tracks_submission.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+    this.playlist.tracks_archived.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
   }
 
   searchTrack(): void {
@@ -58,11 +62,6 @@ export class TrackFinderComponent implements OnInit, OnDestroy {
   }
 
   disabledButton(spotifyId: string): boolean {
-    const spotifyIds = [];
-    this.playlist.tracks.map(track => spotifyIds.push(track.spotify_id));
-    this.playlist.tracks_submission.map(track => spotifyIds.push(track.spotify_id));
-    this.playlist.tracks_archived.map(track => spotifyIds.push(track.spotify_id));
-    console.log(spotifyIds);
-    return spotifyIds.includes(spotifyId);
+    return this.trackIdsInPlaylist.includes(spotifyId);
   }
 }
