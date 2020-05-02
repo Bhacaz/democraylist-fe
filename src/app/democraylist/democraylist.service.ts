@@ -90,6 +90,10 @@ export class DemocraylistService {
     return this.http.get(this.backendUrl + 'playlists/' + id + '/stats');
   }
 
+  getPlaylisRecommendations(id: number): Observable<any> {
+    return this.http.get(this.backendUrl + 'playlists/' + id + '/recommendations');
+  }
+
   // TACKS
 
   searchTracks(query: string): Observable<any> {
@@ -126,5 +130,9 @@ export class DemocraylistService {
 
   getUserPlayerDevices(): Observable<any> {
     return this.http.get(this.backendUrl + 'users/player/devices');
+  }
+
+  getRecentlyPlayedTracks(): Observable<any> {
+    return this.http.get(this.backendUrl + 'users/player/recently_played_tracks');
   }
 }

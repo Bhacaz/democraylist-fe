@@ -11,6 +11,8 @@ export class PlayslitAddTrackComponent implements OnInit {
 
   playlist;
   playlistId;
+  recentlyPlayedTracks = [];
+  recommendations = [];
 
   constructor(private democraylistService: DemocraylistService,
               private route: ActivatedRoute,
@@ -23,9 +25,23 @@ export class PlayslitAddTrackComponent implements OnInit {
         });
       }
     });
+    this.getRecentlyPlayed();
+    this.getRecommendations();
   }
 
   ngOnInit(): void {
+  }
+
+  getRecentlyPlayed() {
+    this.democraylistService.getRecentlyPlayedTracks().subscribe(data => {
+      this.recentlyPlayedTracks = data;
+    });
+  }
+
+  getRecommendations() {
+    this.democraylistService.getPlaylisRecommendations(this.playlistId).subscribe(data => {
+      this.recommendations = data;
+    });
   }
 
   addTrack(trackId: string) {
@@ -40,5 +56,4 @@ export class PlayslitAddTrackComponent implements OnInit {
     return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
       this.playlist.subscribed;
   }
-
 }
