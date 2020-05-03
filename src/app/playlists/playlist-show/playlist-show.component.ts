@@ -62,6 +62,13 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     this.democraylistService.playQueue(this.playlistId, 'unvoted').subscribe();
   }
 
+  playUpVoted = (event) => {
+    this.democraylistService.playQueue(this.playlistId, 'upvoted').subscribe();
+  }
+
+  playDownVoted = (event) => {
+    this.democraylistService.playQueue(this.playlistId, 'downvoted').subscribe();
+  }
 
   showMenu(menu) {
     this.menuItems = [
@@ -131,7 +138,9 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
         this.playMenuItem = [
           {label: 'Tracks', icon: 'fa fa-music', command: this.playTracks, disabled: noDevice},
           {label: 'Submission', icon: 'fa fa-headphones', command: this.playSubmissions, disabled: noDevice},
-          {label: 'Unvoted', icon: 'fa fa-question-circle', command: this.playUnvoted, disabled: noDevice}
+          {label: 'Unvoted', icon: 'fa fa-question-circle', command: this.playUnvoted, disabled: noDevice},
+          {label: 'Up voted', icon: 'fa fa-arrow-up', command: this.playUpVoted, disabled: noDevice},
+          {label: 'Down voted', icon: 'fa fa-arrow-down', command: this.playDownVoted, disabled: noDevice}
         ];
       }
     );
