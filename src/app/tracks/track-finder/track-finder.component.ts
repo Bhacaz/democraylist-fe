@@ -51,12 +51,6 @@ export class TrackFinderComponent implements OnInit, OnDestroy {
     }
   }
 
-  trackAddedEvent(trackId) {
-    this.query = '';
-    this.trackSelected.emit(trackId);
-    this.searchResult = undefined;
-  }
-
   ngOnDestroy() {
     this.queryChangedSubscription.unsubscribe();
   }

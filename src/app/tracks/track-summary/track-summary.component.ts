@@ -3,7 +3,8 @@ import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {AudioService} from '../audio-player.service';
 import {MenuItem} from 'primeng/api';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-track-summary',
@@ -14,7 +15,6 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
 
   @Input() track;
   @Input() playlist;
-  @Output() playlistChange = new EventEmitter();
   showPlayButton: boolean = false;
   currentlyPlaying: boolean = false;
   audioPlayerSubscription;
@@ -26,7 +26,8 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
     private democraylistService: DemocraylistService,
     private voteService: PlaylistChangeService,
     private audioService: AudioService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {
     this.route.queryParams
       .subscribe(params => {
@@ -102,7 +103,9 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
   }
 
   trackChangeTrigger() {
-    this.playlistChange.emit(this.track.id);
+    this.democraylistService.addTrackToPlaylist(this.playlist.id, this.track.id).subscribe(data => {
+      this.location.back();
+    });
   }
 
   removeTrack = (event) => {
