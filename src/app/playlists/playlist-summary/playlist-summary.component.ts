@@ -41,6 +41,7 @@ export class PlaylistSummaryComponent implements OnInit {
     this.democraylistService.subscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = true;
+        this.router.navigate(['playlists', this.playlist.id]);
       });
   }
 
