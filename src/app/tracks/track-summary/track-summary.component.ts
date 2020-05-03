@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {AudioService} from '../audio-player.service';
@@ -15,6 +15,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
 
   @Input() track;
   @Input() playlist;
+  trackIdsInPlaylist = [];
   showPlayButton: boolean = false;
   currentlyPlaying: boolean = false;
   audioPlayerSubscription;
@@ -52,6 +53,13 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
     ];
     if (this.playlist && this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id) {
       this.menuItems.push({label: 'Remove', icon: 'fa fa-minus-circle', command: this.removeTrack});
+    }
+
+    if (this.playlist) {
+      this.playlist.tracks.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+      this.playlist.tracks_submission.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+      this.playlist.tracks_archived.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+      this.track.disableAddButton = this.trackIdsInPlaylist.includes(this.track.id);
     }
   }
 
