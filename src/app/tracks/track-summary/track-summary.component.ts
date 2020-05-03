@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
 import {AudioService} from '../audio-player.service';
@@ -11,7 +11,7 @@ import {Location} from '@angular/common';
   templateUrl: './track-summary.component.html',
   styleUrls: ['./track-summary.component.scss']
 })
-export class TrackSummaryComponent implements OnInit, OnDestroy {
+export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() track;
   @Input() playlist;
@@ -54,18 +54,19 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
     if (this.playlist && this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id) {
       this.menuItems.push({label: 'Remove', icon: 'fa fa-minus-circle', command: this.removeTrack});
     }
-
-    if (this.playlist) {
-      this.playlist.tracks.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
-      this.playlist.tracks_submission.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
-      this.playlist.tracks_archived.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
-      this.track.disableAddButton = this.trackIdsInPlaylist.includes(this.track.id);
-    }
+    this.setAddButtonDisabled();
   }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.audioPlayerSubscription.unsubscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.playlist) {
+      this.playlist = changes.playlist.currentValue;
+      this.setAddButtonDisabled();
+    }
   }
 
   upVote() {
@@ -150,5 +151,14 @@ export class TrackSummaryComponent implements OnInit, OnDestroy {
 
   artistiNames(): string {
     return this.track.artists.map(artist => artist.name).join(', ');
+  }
+
+  setAddButtonDisabled() {
+    if (this.playlist) {
+      this.playlist.tracks.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+      this.playlist.tracks_submission.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+      this.playlist.tracks_archived.map(track => this.trackIdsInPlaylist.push(track.spotify_id));
+      this.track.disableAddButton = this.trackIdsInPlaylist.includes(this.track.id);
+    }
   }
 }
