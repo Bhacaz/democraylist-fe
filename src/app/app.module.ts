@@ -39,6 +39,7 @@ import { BackToolbarComponent } from './common/back-toolbar/back-toolbar.compone
 import { PlayslitAddTrackComponent } from './playlists/playslit-add-track/playslit-add-track.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {ToastModule} from 'primeng/toast';
+import { PlaylistSharedStartpointComponent } from './playlists/playlist-shared-startpoint/playlist-shared-startpoint.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {ToastModule} from 'primeng/toast';
     PlaylistComponent,
     BottomSheetComponent,
     BackToolbarComponent,
-    PlayslitAddTrackComponent
+    PlayslitAddTrackComponent,
+    PlaylistSharedStartpointComponent
   ],
   imports: [
     HttpClientModule,

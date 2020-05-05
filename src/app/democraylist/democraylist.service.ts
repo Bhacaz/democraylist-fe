@@ -98,6 +98,10 @@ export class DemocraylistService {
     return this.http.get(this.backendUrl + 'playlists/' + id + '/shareable_link');
   }
 
+  getPlaylistIdFromHash(hash: string): Observable<any> {
+    return this.http.get(this.backendUrl + 'playlists/id_from_hash/' + hash);
+  }
+
   // TACKS
 
   searchTracks(query: string): Observable<any> {
