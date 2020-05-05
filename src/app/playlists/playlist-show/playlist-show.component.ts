@@ -7,6 +7,8 @@ import {copyToClipboard} from '../../common/copy-to-clipboard';
 import {environment} from '../../../environments/environment';
 import {BottomSheetComponent} from '../../common/bottom-sheet/bottom-sheet.component';
 
+declare var navigator;
+
 @Component({
   selector: 'app-playlist-show',
   templateUrl: './playlist-show.component.html',
@@ -100,15 +102,15 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     this.democraylistService.getPlaylistShareLink(this.playlist.id).subscribe(data => {
       const shareLink = environment.host + 'p/' + data.hash;
       if (navigator.share) {
-        copyToClipboard(shareLink);
-        this.sheetComponentView.close();
-        this.messageService.add({severity: 'success', summary: 'Link copied to clipboard'});
-      } else {
         navigator.share({
           title: 'Democraylist',
           text: 'Contribute to my playlist on Democraylist. ' + this.playlist.name,
           url: shareLink,
         });
+      } else {
+        copyToClipboard(shareLink);
+        this.sheetComponentView.close();
+        this.messageService.add({severity: 'success', summary: 'Link copied to clipboard'});
       }
     });
   }
@@ -172,4 +174,3 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     );
   }
 }
-
