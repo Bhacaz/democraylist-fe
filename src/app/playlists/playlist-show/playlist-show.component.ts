@@ -98,9 +98,18 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
   copyShareLink = (event) => {
     this.democraylistService.getPlaylistShareLink(this.playlist.id).subscribe(data => {
-      copyToClipboard(environment.host + 'p/' + data.hash);
-      this.sheetComponentView.close();
-      this.messageService.add({severity: 'success', summary: 'Link copied to clipboard'});
+      const shareLink = environment.host + 'p/' + data.hash;
+      if (navigator.share) {
+        copyToClipboard(shareLink);
+        this.sheetComponentView.close();
+        this.messageService.add({severity: 'success', summary: 'Link copied to clipboard'});
+      } else {
+        navigator.share({
+          title: 'Democraylist',
+          text: 'Contribute to my playlist on Democraylist. ' + this.playlist.name,
+          url: shareLink,
+        });
+      }
     });
   }
 
