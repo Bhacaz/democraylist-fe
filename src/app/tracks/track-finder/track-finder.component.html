@@ -10,7 +10,7 @@
 
   <div *ngIf="searchResult">
     <div *ngFor="let track of searchResult">
-      <app-track-summary [track]="track"></app-track-summary>
+      <app-track-summary [track]="track" [playlist]="playlist"></app-track-summary>
     </div>
   </div>
 </div>
