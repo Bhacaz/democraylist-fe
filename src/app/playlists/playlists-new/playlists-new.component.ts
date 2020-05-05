@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Playlist} from '../../models/playlist';
 
 @Component({
   selector: 'app-playlists-new',
@@ -13,7 +12,8 @@ export class PlaylistsNewComponent implements OnInit {
   playlist = {
     name: '',
     description: '',
-    song_size: 50
+    song_size: 50,
+    share_setting: 'visible'
   };
 
   constructor(private democraylistService: DemocraylistService,
@@ -41,7 +41,8 @@ export class PlaylistsNewComponent implements OnInit {
       this.democraylistService.newPlaylist({
         name: this.playlist.name,
         description: this.playlist.description,
-        song_size: this.playlist.song_size
+        song_size: this.playlist.song_size,
+        share_setting: this.playlist.share_setting
       }).subscribe(data => {
         this.playlistId = data.id;
         this.redirectToPlaylist();
@@ -54,4 +55,11 @@ export class PlaylistsNewComponent implements OnInit {
 
   }
 
+  shareSettingHint(): string {
+    return {
+      visible: 'Everybody can see and collaborate to the playlist.',
+        with_link: 'Only user with the playlist link can access and collaborate to the playlist.',
+      restricted: 'Only user who received an invitation can collaborate to the playlist.'
+    }[this.playlist.share_setting];
+  }
 }

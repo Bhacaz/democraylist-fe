@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {appRoutes} from './app.router';
@@ -38,6 +37,7 @@ import { PlaylistComponent } from './tracks/shared/playlist/playlist.component';
 import { BottomSheetComponent } from './common/bottom-sheet/bottom-sheet.component';
 import { BackToolbarComponent } from './common/back-toolbar/back-toolbar.component';
 import { PlayslitAddTrackComponent } from './playlists/playslit-add-track/playslit-add-track.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 @NgModule({
   declarations: [
@@ -77,6 +77,7 @@ import { PlayslitAddTrackComponent } from './playlists/playslit-add-track/playsl
     ProgressSpinnerModule,
     DialogModule,
     TableModule,
+    RadioButtonModule,
     ServiceWorkerModule.register('./addon-service-worker.js', { enabled: environment.production })
   ],
   providers: [
