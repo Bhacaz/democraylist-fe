@@ -1,13 +1,17 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DemocraylistService} from '../../democraylist/democraylist.service';
 import {PlaylistChangeService} from '../../democraylist/playlist-change.service';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, MessageService} from 'primeng/api';
+import {copyToClipboard} from '../../common/copy-to-clipboard';
+import {environment} from '../../../environments/environment';
+import {BottomSheetComponent} from '../../common/bottom-sheet/bottom-sheet.component';
 
 @Component({
   selector: 'app-playlist-show',
   templateUrl: './playlist-show.component.html',
-  styleUrls: ['./playlist-show.component.scss']
+  styleUrls: ['./playlist-show.component.scss'],
+  providers: [MessageService]
 })
 export class PlaylistShowComponent implements OnInit, OnDestroy {
 
@@ -18,12 +22,14 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   playMenuItem: MenuItem[];
   menuItems: MenuItem[];
   playOnTitle: string;
+  @ViewChild('sheetComponent') sheetComponentView: BottomSheetComponent;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private democraylistService: DemocraylistService,
-    private voteService: PlaylistChangeService
+    private voteService: PlaylistChangeService,
+    private messageService: MessageService
   ) {
     this.route.params.subscribe(params => {
       this.playlistId = +params.id;
@@ -83,9 +89,20 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     } else {
       this.menuItems.push({label: 'Subscribe', icon: 'fa fa-heart-o', command: this.subscribed});
     }
+
+    if (this.owner() || this.playlist.subscribed) {
+      this.menuItems.push({label: 'Share playlist', icon: 'fa fa-share-alt', command: this.copyShareLink});
+    }
     menu.toggle();
   }
 
+  copyShareLink = (event) => {
+    this.democraylistService.getPlaylistShareLink(this.playlist.id).subscribe(data => {
+      copyToClipboard(environment.host + 'p/' + data.hash);
+      this.sheetComponentView.close();
+      this.messageService.add({severity: 'success', summary: 'Link copied to clipboard'});
+    });
+  }
 
   unsubscribed = (event) => {
     this.democraylistService.unsubscripbedToPlaylist(this.playlist.id)

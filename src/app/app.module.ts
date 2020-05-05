@@ -38,6 +38,7 @@ import { BottomSheetComponent } from './common/bottom-sheet/bottom-sheet.compone
 import { BackToolbarComponent } from './common/back-toolbar/back-toolbar.component';
 import { PlayslitAddTrackComponent } from './playlists/playslit-add-track/playslit-add-track.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     DialogModule,
     TableModule,
     RadioButtonModule,
+    ToastModule,
     ServiceWorkerModule.register('./addon-service-worker.js', { enabled: environment.production })
   ],
   providers: [
