@@ -28,7 +28,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
     private voteService: PlaylistChangeService,
     private audioService: AudioService,
     private route: ActivatedRoute,
-    private location: Location
+    private router: Router
   ) {
     this.route.queryParams
       .subscribe(params => {
@@ -113,7 +113,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
 
   trackChangeTrigger() {
     this.democraylistService.addTrackToPlaylist(this.playlist.id, this.track.id).subscribe(data => {
-      this.location.back();
+      this.router.navigate(['playlists', this.playlist.id]);
     });
   }
 
