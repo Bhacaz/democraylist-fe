@@ -12,9 +12,7 @@
          src="{{user.images[0].url}}"
          height="35px"
          (click)="sheetComponent.toggle()">
-    <app-bottom-sheet #sheetComponent [title]="user.name">
-      <p-menu [model]="menuItems" appendTo="body"></p-menu>
-    </app-bottom-sheet>
+    <app-bottom-sheet #sheetComponent [title]="user.name" [menuItems]="menuItems"></app-bottom-sheet>
 
   </div>
 </div>

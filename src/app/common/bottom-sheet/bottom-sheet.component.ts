@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {SlideUpToggleAnimation} from './utility/bottom-sheet.animation';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-bottom-sheet',
@@ -14,6 +15,7 @@ export class BottomSheetComponent implements OnInit {
     isBottomSheetEnabled: false
   };
   @Input() title: string;
+  @Input() menuItems: MenuItem[];
 
   constructor(private changeDetector: ChangeDetectorRef) {
   }
@@ -22,25 +24,16 @@ export class BottomSheetComponent implements OnInit {
 
   }
 
-  /**
-   * Opens bottom sheet component
-   */
   open() {
     this.flags.isBottomSheetEnabled = true;
     this.changeDetector.detectChanges();
   }
 
-  /**
-   * Closes bottom sheet component
-   */
   close() {
     this.flags.isBottomSheetEnabled = false;
     this.changeDetector.detectChanges();
   }
 
-  /**
-   * Toggles bottom sheet component
-   */
   toggle() {
     this.flags.isBottomSheetEnabled = !this.flags.isBottomSheetEnabled;
     this.changeDetector.detectChanges();

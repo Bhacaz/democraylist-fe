@@ -1,9 +1,7 @@
 <app-back-toolbar [redirectPath]="'/'">
   <div class="dot-menu content-center-content">
     <i class="fa fa-ellipsis-v menu-show-button" (click)="showMenu(sheetComponent)"></i>
-    <app-bottom-sheet #sheetComponent [title]="playlist?.name">
-      <p-menu [model]="menuItems" appendTo="body"></p-menu>
-    </app-bottom-sheet>
+    <app-bottom-sheet #sheetComponent [title]="playlist?.name" [menuItems]="menuItems"></app-bottom-sheet>
   </div>
 </app-back-toolbar>
 
@@ -14,6 +12,7 @@
 <div id="sub-header-container">
   <div class="header-button-container">
     <button pButton
+            *ngIf="playlist.subscribed"
             class="ui-button-success header-button"
             icon="fa fa-plus"
             (click)="redirectToAddTrack()"></button>
@@ -22,9 +21,7 @@
             class="ui-button-success header-button"
             icon="fa fa-play"
             (click)="playButtonClicked(playSheetComponent)"></button>
-    <app-bottom-sheet #playSheetComponent [title]="playOnTitle">
-      <p-menu [model]="playMenuItem" appendTo="body"></p-menu>
-    </app-bottom-sheet>
+    <app-bottom-sheet #playSheetComponent [title]="playOnTitle" [menuItems]="menuItems"></app-bottom-sheet>
   </div>
 </div>
 
