@@ -86,10 +86,6 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
     if (this.owner()) {
       this.menuItems.push({label: 'Edit', icon: 'fa fa-pencil', command: this.redirectToEdit});
-    } else if (this.playlist.subscribed) {
-      this.menuItems.push({label: 'Unsubscribe', icon: 'fa fa-heart', command: this.unsubscribed});
-    } else {
-      this.menuItems.push({label: 'Subscribe', icon: 'fa fa-heart-o', command: this.subscribed});
     }
 
     if (this.owner() || this.playlist.subscribed) {
@@ -115,7 +111,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
     });
   }
 
-  unsubscribed = (event) => {
+  unsubscribed() {
     this.democraylistService.unsubscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = false;
@@ -123,7 +119,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
       });
   }
 
-  subscribed = (event) => {
+  subscribed() {
     this.democraylistService.subscripbedToPlaylist(this.playlist.id)
       .subscribe(data => {
         this.playlist.subscribed = true;
