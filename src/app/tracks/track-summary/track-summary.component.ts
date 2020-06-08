@@ -86,8 +86,6 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
     this.democraylistService.downVotePatch(this.track.id)
       .subscribe(data => {
         if (this.track.my_vote) {
-          this.track.vote_count -= 2;
-        } else {
           this.track.vote_count -= 1;
         }
         this.track.my_vote = 'down';
