@@ -56,5 +56,6 @@
 <p-dialog *ngIf="track.playlist_id" header="{{track.name}}" [(visible)]="showInfo">
   <span class="bold">Added by:</span> {{track.added_by.name || track.added_by.spotify_id}}<br>
   <span class="bold">Up vote:</span> {{track.up_vote_count}}<br>
-  <span class="bold">Down vote:</span> {{track.down_vote_count}}
+  <span class="bold">Down vote:</span> {{track.down_vote_count}}<br>
+  <span class="bold">Album release:</span> {{releaseDate()}}
 </p-dialog>
