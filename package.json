@@ -23,8 +23,8 @@
     "@angular/service-worker": "~10.2.4",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
-    "primeicons": "^2.0.0",
-    "primeng": "^9.0.5",
+    "primeicons": "^4.1.0",
+    "primeng": "^11.3.1",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
