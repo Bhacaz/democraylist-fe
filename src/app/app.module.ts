@@ -70,7 +70,7 @@ import { PlaylistSharedStartpointComponent } from './playlists/playlist-shared-s
   imports: [
     HttpClientModule,
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     FormsModule,
     InputTextModule,
     ButtonModule,
