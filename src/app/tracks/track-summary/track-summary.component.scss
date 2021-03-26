@@ -8,15 +8,8 @@
   width: 100%;
 }
 
-@-webkit-keyframes blinker {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
-.blink {
-  -webkit-animation: blinker 1s 3;
-  -moz-animation: blinker 1s 3;
-  animation: blinker 1s 3;
+.focus-background {
+  background-color: lightgoldenrodyellow
 }
 
 .arrows {

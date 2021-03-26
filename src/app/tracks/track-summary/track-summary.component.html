@@ -1,5 +1,5 @@
 
-<div class="container track-summary" [ngClass]="{'blink' : focus()}">
+<div class="container track-summary" [ngClass]="{'focus-background' : focus()}">
   <div class="album-img-container" (mouseenter)="mouseEnterPlayButton()" (mouseleave)="mouseLeavePlayButton()">
     <i class="fa fa-play-circle-o play-button"
        (click)="playPreview()"
@@ -31,7 +31,7 @@
   <div class="container column track-description">
     <span class="track-name-container">
       <h3 class="no-margin track-name">{{track.name}}</h3>
-      <p class="no-margin track-artists">{{artistiNames()}}</p>
+      <p class="no-margin track-artists">{{artistNames()}}</p>
     </span>
     <div *ngIf="!track.playlist_id" class="release-date">
       <span><i class="fa fa-calendar"></i></span>
@@ -53,7 +53,7 @@
   </div>
 </div>
 
-<p-dialog *ngIf="track.playlist_id" header="{{track.name}}" [(visible)]="showInfo">
+<p-dialog *ngIf="track.playlist_id && showInfo" header="{{track.name}}" [(visible)]="showInfo">
   <span class="bold">Added by:</span> {{track.added_by.name || track.added_by.spotify_id}}<br>
   <span class="bold">Up vote:</span> {{track.up_vote_count}}<br>
   <span class="bold">Down vote:</span> {{track.down_vote_count}}<br>

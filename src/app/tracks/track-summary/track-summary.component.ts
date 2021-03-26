@@ -22,6 +22,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
   menuItems: MenuItem[];
   showInfo: boolean = false;
   trackId: number;
+  userLocalStorage;
 
   constructor(
     private democraylistService: DemocraylistService,
@@ -37,6 +38,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
           this.trackId = parseInt(trackId);
         }
       });
+    this.userLocalStorage = JSON.parse(localStorage.getItem('user'));
   }
 
   ngOnInit() {
@@ -51,7 +53,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
       {label: 'Open on spotify', icon: 'fa fa-spotify', command: this.openWithSpotify},
       {label: 'Show info', icon: 'fa fa-info-circle', command: this.toggleShowInfo}
     ];
-    if (this.playlist && this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id) {
+    if (this.playlist && this.playlist.user_id === this.userLocalStorage.id) {
       this.menuItems.push({label: 'Remove', icon: 'fa fa-minus-circle', command: this.removeTrack});
     }
     this.setAddButtonDisabled();
@@ -139,7 +141,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   showVotebutton(): boolean {
-    return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
+    return this.playlist.user_id === this.userLocalStorage.id ||
       this.playlist.subscribed;
   }
 
@@ -147,7 +149,7 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
     return this.track.id === this.trackId;
   }
 
-  artistiNames(): string {
+  artistNames(): string {
     return this.track.artists.map(artist => artist.name).join(', ');
   }
 
