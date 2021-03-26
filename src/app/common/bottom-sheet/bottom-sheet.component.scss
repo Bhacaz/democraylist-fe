@@ -61,7 +61,6 @@
   background: #bdbdbd;
 }
 
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
@@ -72,9 +71,13 @@
   background: rgb(92, 92, 92);
 }
 
-::ng-deep .ui-menu {
-  width: 100% !important;
-  border: 0 !important;
-  text-align: center !important;
-  opacity: 1 !important;
+::ng-deep .p-menu {
+  width: 100%;
+  border: 0;
+  text-align: center;
+  opacity: 1;
+}
+
+::ng-deep .p-menuitem-link {
+  justify-content: center;
 }
