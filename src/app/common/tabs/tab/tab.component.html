@@ -1,3 +1,5 @@
 <div [hidden]="!active" class="pane">
-  <ng-content></ng-content>
+  <span *ngIf="renderContent">
+    <ng-content></ng-content>
+  </span>
 </div>
