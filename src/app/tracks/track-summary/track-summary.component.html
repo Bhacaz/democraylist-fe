@@ -1,5 +1,5 @@
 
-<div class="container track-summary" [ngClass]="{'focus-background' : focus()}">
+<div class="container track-summary" [ngClass]="{'focus-background' : focus}">
   <div class="album-img-container" (mouseenter)="mouseEnterPlayButton()" (mouseleave)="mouseLeavePlayButton()">
     <i class="fa fa-play-circle-o play-button"
        (click)="playPreview()"
@@ -12,7 +12,7 @@
 
   <div class="arrows content-center">
     <div *ngIf="track.playlist_id"  class="container column content-center-content">
-    <span *ngIf="showVotebutton()" class="icon vote-null arrow-up"
+    <span *ngIf="showVotebutton" class="icon vote-null arrow-up"
           [ngClass]="{'voted-up' : track.my_vote == 'up', 'arrow-hover' : track.my_vote != 'up'}"
           (click)="upVote()">
       <i class="fa fa-chevron-up"></i>
@@ -20,7 +20,7 @@
 
       <div class="vote-count">{{track.vote_count}}</div>
 
-      <span *ngIf="showVotebutton()" class="icon vote-null arrow-down"
+      <span *ngIf="showVotebutton" class="icon vote-null arrow-down"
             [ngClass]="{'voted-down' : track.my_vote == 'down', 'arrow-hover' : track.my_vote != 'down'}"
             (click)="downVote()">
       <i class="fa fa-chevron-down"></i>
@@ -31,11 +31,11 @@
   <div class="container column track-description">
     <span class="track-name-container">
       <h3 class="no-margin track-name">{{track.name}}</h3>
-      <p class="no-margin track-artists">{{artistNames()}}</p>
+      <p class="no-margin track-artists">{{track.artistNames}}</p>
     </span>
     <div *ngIf="!track.playlist_id" class="release-date">
       <span><i class="fa fa-calendar"></i></span>
-      {{releaseDate()}}
+      {{releaseDate}}
     </div>
     <p *ngIf="track.added_by" class="added-by">{{track.added_by.name || track.added_by.spotify_id}}</p>
   </div>
@@ -57,5 +57,5 @@
   <span class="bold">Added by:</span> {{track.added_by.name || track.added_by.spotify_id}}<br>
   <span class="bold">Up vote:</span> {{track.up_vote_count}}<br>
   <span class="bold">Down vote:</span> {{track.down_vote_count}}<br>
-  <span class="bold">Album release:</span> {{releaseDate()}}
+  <span class="bold">Album release:</span> {{releaseDate}}
 </p-dialog>

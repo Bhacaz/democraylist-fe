@@ -23,6 +23,9 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
   showInfo: boolean = false;
   trackId: number;
   userLocalStorage;
+  focus;
+  showVotebutton;
+  releaseDate;
 
   constructor(
     private democraylistService: DemocraylistService,
@@ -57,6 +60,11 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
       this.menuItems.push({label: 'Remove', icon: 'fa fa-minus-circle', command: this.removeTrack});
     }
     this.setAddButtonDisabled();
+    this.focus = this.track.id === this.trackId;
+    this.showVotebutton = this.playlist.user_id === this.userLocalStorage.id ||
+      this.playlist.subscribed;
+    this.track.artistName = this.track.artists.map(artist => artist.name).join(', ');
+    if (!this.track.playlist_id) { this.initReleaseDate(); }
   }
 
   ngOnDestroy() {
@@ -130,27 +138,15 @@ export class TrackSummaryComponent implements OnInit, OnDestroy, OnChanges {
     this.showInfo = true;
   }
 
-  releaseDate(): string {
+  initReleaseDate() {
     const date = new Date(this.track.album.release_date);
 
-    return date.toLocaleString('fr-CA', {
+    this.releaseDate =
+      date.toLocaleString('fr-CA', {
       day: 'numeric',
       month: 'short',
       year: 'numeric'
     });
-  }
-
-  showVotebutton(): boolean {
-    return this.playlist.user_id === this.userLocalStorage.id ||
-      this.playlist.subscribed;
-  }
-
-  focus(): boolean {
-    return this.track.id === this.trackId;
-  }
-
-  artistNames(): string {
-    return this.track.artists.map(artist => artist.name).join(', ');
   }
 
   setAddButtonDisabled() {
