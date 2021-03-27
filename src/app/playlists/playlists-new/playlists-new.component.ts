@@ -58,7 +58,7 @@ export class PlaylistsNewComponent implements OnInit {
   shareSettingHint(): string {
     return {
       visible: 'Everybody can see and collaborate to the playlist.',
-        with_link: 'Only user with the playlist link can access and collaborate to the playlist.',
+      with_link: 'Only user with the playlist link can access and collaborate to the playlist.',
       restricted: 'Only user who received an invitation can collaborate to the playlist.'
     }[this.playlist.share_setting];
   }

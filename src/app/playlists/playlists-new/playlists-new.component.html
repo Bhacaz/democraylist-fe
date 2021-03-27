@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label for="share_setting">Share setting</label>
-      <p-radioButton name="share_setting" value="visible" label="Visible" [(ngModel)]="playlist.share_setting"></p-radioButton>
+      <p-radioButton name="share_setting" value="visible" label="Public" [(ngModel)]="playlist.share_setting"></p-radioButton>
       <p-radioButton name="share_setting" value="with_link" label="With link" [(ngModel)]="playlist.share_setting"></p-radioButton>
 <!--      <p-radioButton name="share_setting" value="restricted" label="Restricted" [(ngModel)]="playlist.share_setting"></p-radioButton>-->
       <p id="share-setting-hint">{{shareSettingHint()}}</p>
