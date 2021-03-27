@@ -24,6 +24,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
   playMenuItem: MenuItem[];
   menuItems: MenuItem[];
   playOnTitle: string;
+  owner;
   @ViewChild('sheetComponent') sheetComponentView: BottomSheetComponent;
 
   constructor(
@@ -46,6 +47,7 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
+    this.owner = this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id;
   }
 
   ngOnDestroy() {
@@ -141,10 +143,6 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
 
   redirectToAddTrack() {
     this.router.navigate(['playlists', this.playlistId, 'add-track']);
-  }
-
-  owner(): boolean {
-    return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id;
   }
 
   playButtonClicked(menu: any) {

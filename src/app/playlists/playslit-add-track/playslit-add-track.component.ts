@@ -13,6 +13,7 @@ export class PlayslitAddTrackComponent implements OnInit {
   playlistId;
   recentlyPlayedTracks = [];
   recommendations = [];
+  showTrackFinder;
 
   constructor(private democraylistService: DemocraylistService,
               private route: ActivatedRoute,
@@ -30,6 +31,8 @@ export class PlayslitAddTrackComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.showTrackFinder = this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
+    this.playlist.subscribed;
   }
 
   getRecentlyPlayed() {
@@ -50,10 +53,5 @@ export class PlayslitAddTrackComponent implements OnInit {
         this.playlist = data;
         this.router.navigate(['playlists', this.playlistId]);
       });
-  }
-
-  showTrackFinder(): boolean {
-    return this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
-      this.playlist.subscribed;
   }
 }

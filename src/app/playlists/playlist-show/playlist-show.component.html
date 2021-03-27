@@ -12,19 +12,19 @@
 <div id="sub-header-container">
   <div class="header-button-container">
     <button pButton
-            *ngIf="!owner() && playlist.subscribed"
+            *ngIf="!owner && playlist.subscribed"
             class="p-button-success header-button"
             icon="fa fa-heart"
             (click)="unsubscribed()"></button>
 
     <button pButton
-            *ngIf="!owner() && !playlist.subscribed"
+            *ngIf="!owner && !playlist.subscribed"
             class="p-button-success header-button"
             icon="fa fa-heart-o"
             (click)="subscribed()"></button>
 
     <button pButton
-            *ngIf="owner() || playlist.subscribed"
+            *ngIf="owner || playlist.subscribed"
             class="p-button-success header-button"
             icon="fa fa-plus"
             (click)="redirectToAddTrack()"></button>
