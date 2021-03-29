@@ -86,11 +86,11 @@ export class PlaylistShowComponent implements OnInit, OnDestroy {
       {label: 'Statistic', icon: 'fa fa-bar-chart', command: this.openStats}
     ];
 
-    if (this.owner()) {
+    if (this.owner) {
       this.menuItems.push({label: 'Edit', icon: 'fa fa-pencil', command: this.redirectToEdit});
     }
 
-    if (this.owner() || this.playlist.subscribed) {
+    if (this.owner || this.playlist.subscribed) {
       this.menuItems.push({label: 'Share playlist', icon: 'fa fa-share-alt', command: this.copyShareLink});
     }
     menu.toggle();
