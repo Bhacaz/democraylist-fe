@@ -23,6 +23,8 @@ export class PlayslitAddTrackComponent implements OnInit {
       if (this.playlistId) {
         this.democraylistService.getPlaylist(this.playlistId).subscribe(data => {
           this.playlist = data;
+          this.showTrackFinder = this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
+            this.playlist.subscribed;
         });
       }
     });
@@ -31,8 +33,7 @@ export class PlayslitAddTrackComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.showTrackFinder = this.playlist.user_id === JSON.parse(localStorage.getItem('user')).id ||
-    this.playlist.subscribed;
+
   }
 
   getRecentlyPlayed() {
